@@ -138,6 +138,8 @@ const projectContentByTitle: Record<WorkItemTitle, ProjectContent> = {
       { kind: "image", src: "/projects/katun/6.png", alt: "Katun 6" },
     ],
   },
+
+  
   Lareman: {
     title: "Lareman",
     year: "2025",

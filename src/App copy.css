@@ -1,0 +1,570 @@
+html,
+body,
+#root {
+ 
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #222;
+  background-color: #fff;
+}
+
+@font-face {
+    font-family: "ABC Diatype";
+    src: url("https://db.onlinewebfonts.com/t/4c4a87973ef80fc72049e01b9085fadc.eot");
+    src: url("https://db.onlinewebfonts.com/t/4c4a87973ef80fc72049e01b9085fadc.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/4c4a87973ef80fc72049e01b9085fadc.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/4c4a87973ef80fc72049e01b9085fadc.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/4c4a87973ef80fc72049e01b9085fadc.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/4c4a87973ef80fc72049e01b9085fadc.svg#ABC Diatype")format("svg");
+}
+
+@font-face {
+  font-family: "Junicode";
+  src: url("https://db.onlinewebfonts.com/t/9c38e1dc0d43f3aacbf63aea17a50b54.eot");
+  src: url("https://db.onlinewebfonts.com/t/9c38e1dc0d43f3aacbf63aea17a50b54.eot?#iefix") format("embedded-opentype"),
+       url("https://db.onlinewebfonts.com/t/9c38e1dc0d43f3aacbf63aea17a50b54.woff2") format("woff2"),
+       url("https://db.onlinewebfonts.com/t/9c38e1dc0d43f3aacbf63aea17a50b54.woff") format("woff"),
+       url("https://db.onlinewebfonts.com/t/9c38e1dc0d43f3aacbf63aea17a50b54.ttf") format("truetype"),
+       url("https://db.onlinewebfonts.com/t/9c38e1dc0d43f3aacbf63aea17a50b54.svg#JunicodeBold") format("svg");
+  font-style: normal;
+  font-stretch: condensed;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+}
+*,
+*::before,
+*::after {
+  cursor: none !important;
+}
+html, body {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1;
+  cursor: none;
+}
+
+body {
+  font-family: sans-serif; 
+  overflow-x: hidden;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  all: unset;              
+  cursor: pointer;         
+  color: inherit;         
+  text-decoration: none;  
+}
+
+a:focus {
+  outline: none;           
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+}
+/* SETTINGS */
+
+
+.work-scroll::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.work-scroll {
+  scrollbar-width: none;
+}
+
+
+
+
+
+
+
+
+ .app-row {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  padding: 32px 30px;
+  overflow-y: hidden;
+} 
+
+.sidebar {
+  width:30%;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+  height: 100%;
+ overflow: hidden;
+} 
+.bio-main{
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-bottom: 32px;
+}
+.name {
+  font-size: 18px;
+  margin: 0;
+}
+
+.main-nav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content:space-between;
+}
+
+.content {
+  padding-left: 40px;
+ overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  position: relative;
+}
+
+.content-top {
+  display: flex;
+  justify-content: space-between;
+  height: 200px;
+  align-items: center;
+  flex-direction: row;
+}
+.year-stack {
+  font-size: 90px;
+  line-height:80px;
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+color: #DCDCDC;
+  transform: scaleY(1.4);  
+  transform-origin: center;
+  font-family: 'Junicode';
+}
+.hero-title {
+  font-weight: 400;
+  font-size: 180px;
+  margin-left: -17px;
+}
+.nav {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 14px;
+  color: #777;
+  cursor: pointer;
+} 
+
+.photo {
+  width: 100%;
+  height: 100%;
+ object-fit: cover;
+}
+
+
+.bio {
+  font-family: "Junicode";
+  font-size: 24px;
+  letter-spacing:0px;
+  transform: scaleY(1.4);  
+  transform-origin: center;
+}
+.bio-container {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  display: flex;
+  align-items: center ;
+  justify-content: flex-start;
+}
+.bio-container-bottom {
+  height: 250px;
+  display: flex;
+  align-items: center ;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.about, .instagram {
+  font-size: 32px;
+}
+.name {
+   font-family: "Junicode";
+  letter-spacing:0px;
+  line-height: 25px;
+  font-size: 28px;
+  transform: scaleY(1.4); 
+  transform-origin: top;
+}
+.work-table {
+   display: flex;
+   flex-grow: 1;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  gap: 14px;
+
+}
+.work-row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  height: 35px;
+  border-bottom: 1px dotted #DCDCDC;
+  font-size: 24px;
+  font-weight: 400;
+}
+.section-title {
+  font-size: 32px;
+  font-weight: 400;
+  color: #DCDCDC;
+  height: 50px;
+
+}
+
+.w-role, .w-year {
+  color: #DCDCDC;
+}
+.w-role {
+width: 250px;
+}
+.w-title {
+  width: 250px;
+}
+.w-role-container {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+.footer {
+  position: absolute;
+  left: 40px;
+  right: 0;            
+  bottom: 0;
+  box-sizing: border-box;
+  display: flex; 
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding-top: 16px;
+}
+.footer-note {
+  font-family: 'ABC Diatype';
+font-size: 32px;
+
+color: #DCDCDC;
+}
+.footer-links {
+  font-size: 32px;
+  display: flex;
+  gap: 100px;
+}
+.download {
+  font-size: 32px;
+}
+.content-about {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-bottom: 100px;
+}
+.download {
+  display: flex;
+  gap: 30px;
+}
+.cv-text {
+  color: #DCDCDC;
+}
+
+.w-role-about, .w-year-about {
+  color: #DCDCDC;
+}
+.w-role-about {
+width: 450px;
+}
+.w-year-about {
+  width: 300px;
+}
+.w-title-about {
+  width: 700px;
+}
+.w-role-container-about {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+
+.content-project {
+  overflow-y: auto !important;
+  padding-bottom: 120px; 
+}
+
+.content-project::-webkit-scrollbar { width: 0; height: 0; }
+.content-project { scrollbar-width: none; }
+
+/* Project pages: make ONLY right side scrollable */
+.content-project {
+  overflow-y: auto !important;
+  padding-bottom: 140px; /* space so footer doesn't cover last media */
+}
+
+.project-year-mid {
+  font-size: 32px;       /* adjust if you want bigger like the mock */
+  /* makes it stay between top and bottom */
+  font-family: "ABC Diatype";
+}
+
+.project-desc-bottom {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.project-sidebar-label {
+  font-size: 18px;
+  color: #dcdcdc;
+}
+
+.project-sidebar-description {
+  font-family: "Junicode";
+  font-size: 18px;
+  line-height: 1.25;
+  transform: scaleY(1.4);
+  transform-origin: top;
+}
+
+/* Project content styling (matches your mock style) */
+.project-page {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding-right: 10px;
+}
+
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.project-projectTitle {
+  font-size: 32px;
+  font-weight: 400;
+  color: #dcdcdc;
+}
+
+.project-year {
+  font-size: 24px;
+  color: #222;
+}
+
+.project-descriptionBlock {
+  max-width: 520px;
+}
+
+.project-label {
+  font-size: 18px;
+  color: #dcdcdc;
+  margin-bottom: 10px;
+}
+
+.project-description {
+  font-family: "Junicode";
+  font-size: 18px;
+  line-height: 1.25;
+  transform: scaleY(1.4);
+  transform-origin: top;
+}
+
+.project-media {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.project-image,
+.project-video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.project-sidebar {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-sidebar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.project-sidebar-title {
+  font-size: 32px;
+  color: #dcdcdc;
+}
+
+.project-sidebar-year {
+  font-size: 24px;
+  color: #222;
+}
+
+.project-sidebar-label {
+  font-size: 18px;
+  color: #dcdcdc;
+}
+
+.project-sidebar-description {
+  font-family: "Junicode";
+  font-size: 18px;
+  line-height: 1.25;
+  transform: scaleY(1.4);
+  transform-origin: top;
+}
+
+/* 1. Large screens */
+@media (max-width: 1920px) {}
+@media (max-width: 1750px) {
+  .year-stack {
+  font-size: 70px;
+}
+.hero-title {
+  font-size: 160px;
+}
+}
+@media (max-width: 1600px) {
+  .name {
+font-size: 24px;
+  }
+  .about {
+font-size: 28px;
+  }
+  .instagram {
+font-size: 28px;
+  }
+  
+.hero-title {
+  font-size: 130px;
+}
+.bio {
+  font-size: 18px;
+}
+  .footer-note {
+font-size: 28px;
+
+}
+.footer-links {
+  font-size: 28px;
+
+}
+
+}
+
+@media (max-width: 1440px) {
+    .name {
+font-size: 18px;
+  }
+  .about {
+font-size: 24px;
+  }
+  .instagram {
+font-size: 24px;
+  }
+
+.hero-title {
+  font-size: 100px;
+  margin: 0;
+}
+  .footer-note {
+font-size: 24px;
+
+}
+.footer-links {
+  font-size: 24px;
+
+}
+.content-top {
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+}
+.year-stack {
+justify-self: flex-start;
+flex-direction: row;
+align-items: flex-end;
+font-size: 70px;
+}
+.sidebar {
+  width: 40%;
+
+}
+.content {
+width: 60%;
+}
+}
+
+
+@media (max-width: 1200px) {
+
+}
+@media (max-width: 1024px) {}
+
+@media (max-width: 900px) {
+  .app-row {
+ height: 100%;
+ width: 100%;
+  flex-direction: column;
+  overflow-x: scroll;
+  }
+  
+.sidebar {
+  width:100%;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+  height: 100%;
+ overflow: hidden;
+} 
+
+.content {
+  padding-left: 0;
+ overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+} 
+
+
+@media (max-width: 768px) {}
+
+@media (max-width: 600px) {}
+@media (max-width: 480px) {}
+@media (max-width: 375px) {}
+
+
+
+
+
+
+
+
+

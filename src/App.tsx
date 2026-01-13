@@ -248,30 +248,38 @@ function App(): JSX.Element {
         {/* ONLY CHANGE: add content-project class when project */}
         <main className={`content ${isProjectSection ? "content-project" : ""}`}>
           {activeSection === "about" && (
-            <div className="content-about">
-              <img src="photo2.png" alt="Example" className="photo2" />
+           <div className="content-about">
+  <img src="photo2.png" alt="Example" className="photo2" />
 
-              <h3 className="section-title">Work Selection</h3>
-              <div className="work-scroll">
-                <ul className="work-table">
-                  {workItems2.map((item) => (
-                    <li key={item.title} className="work-row">
-                      <span className="w-title-about">{item.title}</span>
-                      <div className="w-role-container-about">
-                        <span className="w-role-about">{item.role}</span>
-                      </div>
-                      <span className="w-year-about">{item.year}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+  <h3 className="section-title">Work Experience</h3>
 
-              <div className="download">
-                <p className="cv-text">More information on my CV below:</p>
-                <a href="Alen_Aslanyan_CV.pdf" download="Alen Aslanyan CV.pdf">
-                  Download
-                </a>
-              </div>
+  <div className="work-scroll w-scroll-about">
+
+    <ul className="work-table w-table-about original-grid">
+      {workItems2.map((item) => (
+        <li key={item.title} className="work-row">
+          <span className="w-title-about">{item.title}</span>
+          <div className="w-role-container-about">
+            <span className="w-role-about">{item.role}</span>
+          </div>
+          <span className="w-year-about">{item.year}</span>
+        </li>
+      ))}
+    </ul>
+
+    <ul className="work-table w-table-about work-grid-compact">
+      {workItems2.map((item) => (
+        <li key={`${item.title}-compact`} className="work-row work-row-compact">
+          <span className="w-title-about w-title-compact">
+            {item.title} <span className="item-role-compact">({item.role})</span>
+          </span>
+          <span className="w-year-about">{item.year}</span>
+        </li>
+      ))}
+    </ul>
+
+  </div>
+
             </div>
           )}
 
@@ -355,6 +363,15 @@ function App(): JSX.Element {
     {activeSection === "main" && (
       <div className="footer-note">Hire me, I’m cool</div>
     )}
+     {activeSection === "about" && (
+            <div className="download">
+                <p className="cv-text">More information on my CV below:</p>
+                <a href="Alen_Aslanyan_CV.pdf" download="Alen Aslanyan CV.pdf">
+                  Download
+                </a>
+              </div>
+    )}
+
   </footer>
 )}
 

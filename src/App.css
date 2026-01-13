@@ -44,7 +44,6 @@ body,
 
 html, body {
   font-family: inherit;
-  font-size: 100%;
   line-height: 1;
   cursor: none;
 }
@@ -95,7 +94,9 @@ a:hover {
 /* ==========================================================================
    LAYOUT: APP SHELL
    ========================================================================== */
-
+.item-role-compact {
+    color: #858585;
+}
 .app-row {
   height: 100vh;
   display: flex;
@@ -234,6 +235,9 @@ margin-bottom: 50px;
   object-position: bottom center;
 }
 
+.photo2 {
+  object-fit: cover;
+}
 /* ==========================================================================
    WORK TABLE
    ========================================================================== */
@@ -285,7 +289,12 @@ margin-bottom: 50px;
   justify-content: center;
   display: flex;
 }
-
+.work-grid-compact {
+  display: none !important;
+}
+.original-grid {
+  display: flex;
+}
 /* ==========================================================================
    FOOTER
    ========================================================================== */
@@ -338,7 +347,7 @@ margin-bottom: 50px;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  padding-bottom: 100px;
+  padding-bottom: 80px;
 }
 
 .w-role-about, .w-year-about {
@@ -350,6 +359,9 @@ margin-bottom: 50px;
 }
 
 .w-year-about {
+  display: flex;
+  justify-content: flex-end;
+  white-space: nowrap;
   width: 300px;
 }
 
@@ -497,7 +509,21 @@ margin-bottom: 50px;
   transform: scaleY(1.4);
   transform-origin: top;
 }
+.w-scroll-about {
 
+}
+.w-table-about {
+
+}
+.download {
+  font-size: 32px;
+}
+
+.footer-links {
+  font-size: 32px;
+  display: flex;
+  gap: 100px;
+}
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
@@ -552,6 +578,9 @@ height: 160px;
   .footer-links {
     font-size: 28px;
   }
+  .download {
+  font-size: 28px;
+}
 }
 
 @media (max-width: 1440px) {
@@ -576,7 +605,9 @@ height: 160px;
     font-size: 24px;
   }
 
-
+  .download {
+   font-size: 24px;
+}
   .year-stack {
     justify-self: flex-start;
     flex-direction: row;
@@ -591,6 +622,23 @@ height: 160px;
   .content {
     width: 60%;
   }
+  .w-role-about, .w-year-about {
+  color: #DCDCDC;
+}
+
+.w-role-about {
+  width: 300px;
+}
+
+.w-title-about {
+  width: 400px;
+}
+
+.w-role-container-about {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
 }
 
 @media (max-height: 800px) {
@@ -629,6 +677,11 @@ height: 160px;
   flex-direction: column;
   height: 100%;
   gap: 5px;
+  .content-about {
+
+  padding-bottom: 60px;
+}
+
 }
 
 .work-row {
@@ -640,6 +693,15 @@ height: 160px;
   border-bottom: 1px dotted #DCDCDC;
   font-size: 16px;
   font-weight: 400;
+}
+.w-table-about >* {
+ font-size: 16px;
+}
+}
+
+@media (max-height: 900px) {
+  .w-table-about >* {
+ font-size: 18px;
 }
 }
 
@@ -663,6 +725,11 @@ height: 160px;
   border-bottom: 1px dotted #DCDCDC;
   font-size: 16px;
   font-weight: 400;
+}
+
+  .content-about {
+
+  padding-bottom: 40px;
 }
 }
 
@@ -693,6 +760,40 @@ height: 160px;
 .bio {
   font-size: 16px;
 }
+.w-role-about, .w-year-about {
+  color: #DCDCDC;
+}
+
+.w-role-about {
+  width: 300px;
+}
+
+
+
+.w-title-about {
+  width: 300px;
+}
+
+.w-role-container-about {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+.work-grid-compact {
+display: flex !important;
+}
+.original-grid {
+    display: none !important;
+}
+.w-title-compact {
+  width: 500px !important;
+}
+.work-row-compact {
+  height: 35px;
+}
+.footer >*{
+  font-size: 13px;
+}
 }
 
 @media (max-width: 1080px) {
@@ -715,12 +816,61 @@ width: 65%;
     align-items: flex-end;
     font-size: 40px;
   }
+  .w-role-about, .w-year-about {
+  color: #DCDCDC;
+}
+
+.w-role-about {
+  width: 300px;
+}
+
+
+
+.w-title-about {
+  width: 400px;
+}
+
+.w-role-container-about {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+  .w-table-about >* {
+ font-size: 16px;
+}
+.work-row-compact >*{
+  font-size: 16px;
+}
+
 }
 
 @media (max-width: 900px) {
+     .hero-title {
+    font-size: 45px;
+    margin: 0;
+  }
+  .year-stack {
+    justify-self: flex-start;
+    flex-direction: row;
+    align-items: flex-end;
+    font-size: 35px;
+  }
+    .main-nav >*{
+  font-size: 16px;
+}
+.footer >*{
+    font-size: 18px;
+}
+.work-row-compact >*{
+  font-size: 16px;
+}
+.content-about {
+  padding-bottom: 70px;
+}
+ }
+
+@media (max-width: 768px) {
   .app-row {
-    height: 100%;
-    width: 100%;
     flex-direction: column;
     overflow-x: scroll;
   }
@@ -732,6 +882,7 @@ width: 65%;
     box-sizing: border-box;
     height: 100%;
     overflow: hidden;
+    justify-content: space-between;
   }
 
   .content {
@@ -756,22 +907,94 @@ width: 65%;
   padding-top: 16px;
 }
 .photo {
-  object-fit: cover;
+  object-fit: contain;
+  height: 100%;
 }
-.app-row {
-  padding: 32px 84px;
-}
+
 .main-nav >*{
  font-size: 28px;
+}
+.footer >*{
+    font-size: 28px;
 }
 .bio {
   font-size: 22px;
 }
+  .work-table {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  height: 500px;
+  gap: 10px;
 }
 
-@media (max-width: 768px) {}
+.work-row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  height: 30px;
+  border-bottom: 1px dotted #DCDCDC;
+  font-size: 18px;
+  font-weight: 400;
+}
+.work-grid-compact {
+    display: none !important;
 
-@media (max-width: 600px) {}
+}
+.original-grid {
+    display: flex !important;
+}
+
+}
+
+@media (max-width: 768px) {
+ .app-row {
+  min-height: fit-content;
+ }
+.photo2 {
+  object-fit: cover;
+  height: 500px;
+}
+ .work-row {
+  height: 45px;
+ }
+ .w-title-about {
+  font-size: 28px;
+ }
+ .w-role-about {
+   font-size: 28px;
+ }
+.w-year-about {
+
+   font-size: 28px;
+ 
+}
+ .work-table {
+ 
+  height: 700px;
+ }
+.content-about {
+  min-height: 100vh !important;
+}
+.bio-main {
+  height: fit-content;
+}
+.sidebar {
+  height: fit-content;
+}
+.content {
+  padding-top: 50px;
+}
+}
+
+@media (max-width: 600px) {
+  .app-row {
+  padding: 32px 24px;
+}
+}
 
 @media (max-width: 480px) {}
 
@@ -788,7 +1011,9 @@ width: 65%;
 
 
 @media (max-height: 640px) {
- 
+ .bio-container-bottom {
+  height: 400px;
+ }
 }
 
 @media (max-height: 600px) {

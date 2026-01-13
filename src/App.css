@@ -954,6 +954,7 @@ width: 65%;
  .app-row {
   min-height: fit-content;
  }
+ 
 .photo2 {
   object-fit: cover;
   height: 500px;

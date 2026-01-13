@@ -351,7 +351,7 @@ function App(): JSX.Element {
         {!isProjectSection && (
   <footer className="footer">
     <div className="footer-links">
-      <a href="#">Email</a>
+      <a href="mailto:helloalenaslanyan@gmail.com">Email</a>
       <a
         href="https://am.linkedin.com/in/alen-aslanyan-7a8285244"
         target="_blank"

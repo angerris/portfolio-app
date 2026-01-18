@@ -10,7 +10,7 @@ type Section = "main" | "about" | WorkItemTitle;
 const workItems = [
   { title: "Flinta", role: "Art Direction", year: "2025" },
   { title: "Spinx9", role: "Graphic Design", year: "2025" },
-  { title: "BigBig Studio", role: "Art Direction", year: "2024" },
+  { title: "BigBig Studio", role: "Art Direction", year: "2023" },
   { title: "Mushroom", role: "Art Direction", year: "2024" },
   { title: "Lusavor Jewellery", role: "Graphic Design", year: "2023" },
   { title: "Yoyo Kids", role: "Graphic Design", year: "2025" },
@@ -48,94 +48,95 @@ const projectContentByTitle: Record<WorkItemTitle, ProjectContent> = {
     title: "Flinta",
     year: "2025",
     description:
-      "Write your Flinta description here. 2–5 lines. Mention what you did and what the goal was.",
+      "To create the brand identity for FLINTA Frequency, I explored the intersection of nature and synthesis. The project required a visual language that felt both raw and polished, aiming for an “earthly ethereal” aesthetic. The result is a welcoming, immersive interface where every element was crafted to foster an inclusive, community-driven atmosphere for listeners and artists alike.",
     media: [
-      { kind: "image", src: "/projects/flinta/1.png" },
-      { kind: "video", src: "/projects/flinta/2v.mp4" },
-      { kind: "image", src: "/projects/flinta/3.png" },
-      { kind: "video", src: "/projects/flinta/4v.mp4" },
-      { kind: "video", src: "/projects/flinta/5v.mp4" },
-      { kind: "image", src: "/projects/flinta/6.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749096/1_hgwcju.png" },
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/v1768749179/2v_fht9ia.mp4" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749098/3_ao3swd.png" },
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/v1768749172/4v_jx57xr.mp4" },
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/v1768749223/5v_j51slq.mp4" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749100/6_heqyv8.png" },
     ],
   },
   Spinx9: {
     title: "Spinx9",
     year: "2025",
-    description:
-      "SpinX9 — 3D Character & Animation DesignFor SpinX9, a Yerevan-based electronic music event series, I created a custom 3D character and animation assets to support their visual identity. The work aimed to capture the underground, experimental energy of their events while keeping a bold and recognizable aesthetic. The designs were integrated into their social media presence and event promotion, helping the brand stand out with a modern and immersive visual style.",
+    description: "Born from the raw energy of Armenia's underground music and entertainment scene, I developed this Red Diva to serve as the face of the SpinX9 electronic music event series. This character transitioned from a creative concept into a viral promotional asset, acting as the lead animation for the brand’s digital campaign and setting the high tone for the entire event brand.",
     media: [
-      { kind: "image", src: "/projects/spinx9/1.png"},
-      { kind: "video", src: "/projects/spinx9/2v.mp4"},
-      { kind: "image", src: "/projects/spinx9/3.png"},
-      { kind: "image", src: "/projects/spinx9/4.png"},
-      { kind: "video", src: "/projects/spinx9/5v.mp4"},
-      { kind: "image", src: "/projects/spinx9/6.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749896/1_f2aq6t.png"},
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/v1768749978/2v_h9wy83.mp4"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749903/3_nbwfgx.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749897/4_ec8gsm.png"},
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/v1768750016/5v_nuffip.mp4"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749900/6_ryw5pb.png"},
     ],
   },
   "BigBig Studio": {
     title: "BigBig Studio",
-    year: "2024",
+    year: "2023",
     description:
-      "bigbig studio — Visual Identity & Creative Direction As Art Director, I developed the visual identity for bigbig studio, a creative hub focused on graphic design, branding, and interface construction. The design direction emphasized minimalism and adaptability, creating a bold yet flexible system that reflects the studio’s imaginative philosophy — “it’s never about the size but the imagination.” The identity was crafted to work seamlessly across digital and print, reinforcing the studio’s contemporary and experimental character.",
+    "bigbig is an independent visual studio, a platform for high-concept experimentation and boundary-pushing design. Beyond its formal branding, the studio’s Instagram acts as a living portfolio, showcasing everything from raw creative exercises to realized commercial products. It is a space dedicated to ideas that demand total creative freedom.",
     media: [
-      { kind: "image", src: "/projects/bigbig/1.png", alt: "BigBig 1" },
-      { kind: "image", src: "/projects/bigbig/2.png", alt: "BigBig 2" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750530/Group_75_n57u4r.png"},
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/v1768750497/BIG_1_chtq8x.mp4"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750537/Mask_group_jm187b.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750538/Mask_group-2_g1jmen.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750544/Mask_group-3_s9kva9.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750536/Mask_group-1_y1pggt.png"},
     ],
   },
   Mushroom: {
     title: "Mushroom",
     year: "2024",
     description:
-      "Write your Mushroom description here.",
+      "This fungi-dancer hybrid was created for the promotion of SpinX9’s second event. “DANCE!” is the only message that the visual carries, which is truly important, yet sometimes overlooked in our everyday life.",
     media: [
-      { kind: "image", src: "/projects/mushroom/1.png"},
-      { kind: "video", src: "/projects/mushroom/2v.mp4"},
-      { kind: "image", src: "/projects/mushroom/3.png"},
-      { kind: "image", src: "/projects/mushroom/4.png"},
-      { kind: "video", src: "/projects/mushroom/5v.mp4" },
-      { kind: "image", src: "/projects/mushroom/6.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749598/1_qcra5p.png"},
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/v1768749880/2v_labpi5.mp4"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749603/3_qaaktu.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749602/4_ywdrgb.png"},
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/v1768749643/5v_dobozr.mp4" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749604/6_gv0jfp.png"},
     ],
   },
   "Lusavor Jewellery": {
     title: "Lusavor Jewellery",
     year: "2023",
-    description:
-      "Lusavor — Logo & Visual Identity DesignI developed the logo and brand identity for Lusavor, an Armenian silver jewelry brand. The goal was to create a minimal yet elegant identity that reflects the brand’s concept of light and timeless design. The visual system highlights clarity and sophistication, allowing the jewelry itself to remain the centerpiece while reinforcing a strong, memorable brand presence across digital and print platforms.",
+    description: "Branding a product that names itself 'luminous' requires a delicate touch. For Lusavor Jewelry, the challenge was to create a bold identity that felt as high-end as the handcrafted silver pieces it represents. By focusing on minimalist typography and a “less is more” layout, the branding acts as a premium frame for the brand’s iconic Armenian-inspired silhouettes. It is a visual identity that doesn't compete for attention, but rather provides a solid, modern stage for a product that carries its own light.",
     media: [
-      { kind: "image", src: "/projects/lusavor/1.png", alt: "Lusavor 1" },
-      { kind: "image", src: "/projects/lusavor/2.png", alt: "Lusavor 2" },
-      { kind: "image", src: "/projects/lusavor/3.png", alt: "Lusavor 3" },
-      { kind: "image", src: "/projects/lusavor/4.png", alt: "Lusavor 4" },
-      { kind: "image", src: "/projects/lusavor/5.png", alt: "Lusavor 5" },
-      { kind: "image", src: "/projects/lusavor/6.png", alt: "Lusavor 6" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750038/Group_50_trvpow.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749584/2_eoyvwk.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749578/3_cxbyob.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749583/4_nt8htc.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749586/5_y3fnma.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749580/6_ccgnn1.png"},
     ],
   },
   "Yoyo Kids": {
     title: "Yoyo Kids",
     year: "2025",
-    description:
-      "As Art Director, I created the full identity system for YOYO Production, an e-wallet designed for kids. My work included brand naming, logo design, and the development of a playful yet trustworthy visual and UI identity. The goal was to balance a child-friendly aesthetic with clarity and usability, ensuring both kids and parents feel engaged and confident while using the product. The result is a cohesive brand language that works seamlessly across digital platforms and product communication.",
+    description: "For YoYo, a smart wallet designed for juniors, my role expanded beyond traditional design into comprehensive art direction. While I developed the core branding, visual identity, and 3D assets, I also led the creative execution of the promotional campaign. This included overseeing the photoshoot from the ground up: managing casting, wardrobe selection, and set design to ensure the final imagery perfectly captured the brand’s youthful yet secure spirit.",
     media: [
-      { kind: "image", src: "/projects/yoyo/1.png" },
-      { kind: "image", src: "/projects/yoyo/2.png" },
-      { kind: "video", src: "/projects/yoyo/3v.mp4" },
-      { kind: "image", src: "/projects/yoyo/4.png" },
-      { kind: "image", src: "/projects/yoyo/5.png" },
-      { kind: "image", src: "/projects/yoyo/6.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750183/Group_52_rfxdjm.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749416/2_hvfyax.png" },
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/v1768749469/3v_blokgk.mp4" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749415/4_ddnkwa.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749420/5_fiqjub.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749409/6_sib4hj.png" },
     ],
   },
   Katun: {
     title: "Katun",
     year: "2023",
     description:
-      "Write your Katun description here.",
+      "Meet Katun: a conceptual NFT mascot where punk-rock attitude meets high-fashion glamour. The character was designed to push the boundaries of digital toy aesthetics. From its origins as a digital collectible to its upcoming debut as a custom designer keychain, Katun represents the evolution of character design into the real world.",
     media: [
-      { kind: "image", src: "/projects/katun/1.png", alt: "Katun 1" },
-      { kind: "image", src: "/projects/katun/2.png", alt: "Katun 2" },
-      { kind: "video", src: "/projects/katun/3v.mp4" },
-      { kind: "image", src: "/projects/katun/4.png", alt: "Katun 4" },
-      { kind: "image", src: "/projects/katun/5.png", alt: "Katun 5" },
-      { kind: "image", src: "/projects/katun/6.png", alt: "Katun 6" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749358/1_sxzhg4.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749354/2_htwsih.png"},
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/v1768749396/3v_ammgpi.mp4"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749361/4_yjqkrc.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749363/5_xilglm.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749359/6_vytiac.png"},
     ],
   },
 
@@ -144,41 +145,41 @@ const projectContentByTitle: Record<WorkItemTitle, ProjectContent> = {
     title: "Lareman",
     year: "2025",
     description:
-      "Write your Lareman description here. Short, clean, portfolio style.",
+      "For Lareman Online Gift Shop the goal was to build a brand identity that felt both nostalgic and energetic. I used a vibrant, classic palette of primary colors that mirror the excitement and emotional connection of a perfectly chosen gift. The project involved creating a versatile visual language applied to everything from shipping boxes and business cards to promotional apparel, ensuring a memorable brand presence at every customer interaction.",
     media: [
-      { kind: "image", src: "/projects/lareman/1.png" },
-      { kind: "image", src: "/projects/lareman/2.png" },
-      { kind: "image", src: "/projects/lareman/3.png" },
-      { kind: "image", src: "/projects/lareman/4.png" },
-      { kind: "image", src: "/projects/lareman/5.png" },
-      { kind: "image", src: "/projects/lareman/6.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750093/Group_51_hk96iq.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749553/2_o5jp3f.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749555/3_lhrf0e.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749554/4_rscca0.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749555/5_obc47k.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750139/Mask_group_16_bzbk7x.png" },
     ],
   },
   "Hornet Flow": {
     title: "Hornet Flow",
     year: "2024",
-    description:
-      "For this event promotion, I designed and textured custom 3D characters and created dynamic animations that bring them to life in motion. My work focused on integrating visual flair with fluid movement to match the event’s energy, delivering an engaging experience across digital reels and event media.",
+    description: "It began as an exploration into bio-animation and the study of organic movement, evolved into this bioluminescent, fuzzy hornet sequence and then found its home as a music event visualizer. With this animation I wanted to sync the visual to the natural rhythm of a hornet’s wing-buzz and to step away from human-made sounds and listen to the primal music mother nature has to offer.",
     media: [
-      { kind: "image", src: "/projects/hornet/2.png"},
-      { kind: "video", src: "/projects/hornet/3v.mp4"},
-      { kind: "image", src: "/projects/hornet/4.png"},
-      { kind: "image", src: "/projects/hornet/5.png"},
-      { kind: "image", src: "/projects/hornet/6.png"},
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/v1768749923/bee1_asdjsd.mp4"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749489/2_mmgrgc.png"},
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/v1768749915/bee2_iyqz59.mp4"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749491/4_mcvkqs.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749491/5_fcw1qv.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749492/6_iz9n4x.png"},
     ],
   },
   "Privateum Global": {
     title: "Privateum Global",
     year: "2023",
     description:
-      "Write your Privateum Global description here.",
+      "ON is a hub for the ultimate music enthusiasts. This project covers the full branding spectrum, blending digital interfaces with physical assets to connect melomaniacs across all musical boundaries.",
     media: [
-      { kind: "image", src: "/projects/privateum/1.png", alt: "Privateum 1" },
-      { kind: "image", src: "/projects/privateum/2.png", alt: "Privateum 2" },
-      { kind: "image", src: "/projects/privateum/3.png", alt: "Privateum 3" },
-      { kind: "image", src: "/projects/privateum/4.png", alt: "Privateum 4" },
-      { kind: "image", src: "/projects/privateum/5.png", alt: "Privateum 5" },
-      { kind: "image", src: "/projects/privateum/6.png", alt: "Privateum 6" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749888/1_vgrff2.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750286/Mask_group_17_ooheg7.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749894/3_nqbwng.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749914/4_ijsjyb.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749893/5_h2ddo0.png"},
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749894/6_e6nqsk.png"},
     ],
   },
 };
@@ -233,7 +234,7 @@ function App(): JSX.Element {
     <div className="project-year-mid">{activeProject.year}</div>
 
     {/* Description at the same position as bio-container-bottom */}
-    <div className="bio-container-bottom project-desc-bottom">
+    <div className="project-desc-bottom">
       <p className="project-sidebar-label">Description</p>
       <p className="project-sidebar-description">{activeProject.description}</p>
     </div>
@@ -250,6 +251,14 @@ function App(): JSX.Element {
           {activeSection === "about" && (
            <div className="content-about">
   <img src="photo2.png" alt="Example" className="photo2" />
+    <div className="bio-container-bottom-mobile">
+                <p className="bio">
+                  Armenian multidisciplinary designer and art director with 8+ years of experience working on visual
+                  campaigns, visual identities, typography, editorial, motion design and especially helping underground
+                  music artist to promote their music through my work. My inspiration comes from my own work of curation
+                  based on art, design, culture and music.
+                </p>
+              </div>
 
   <h3 className="section-title">Work Experience</h3>
 
@@ -364,12 +373,19 @@ function App(): JSX.Element {
       <div className="footer-note">Hire me, I’m cool</div>
     )}
      {activeSection === "about" && (
+      <>
             <div className="download">
                 <p className="cv-text">More information on my CV below:</p>
                 <a href="Alen_Aslanyan_CV.pdf" download="Alen Aslanyan CV.pdf">
                   Download
                 </a>
               </div>
+               <div className="download-mobile">
+                <a href="Alen_Aslanyan_CV.pdf" download="Alen Aslanyan CV.pdf">
+                  Download CV 🡣
+                </a>
+              </div>
+      </>
     )}
 
   </footer>

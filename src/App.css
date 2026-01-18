@@ -133,7 +133,6 @@ a:hover {
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding-bottom: 32px;
 }
 
 .name {
@@ -165,15 +164,33 @@ margin-bottom: 50px;
 }
 
 .bio-container-bottom {
-  height: 250px;
+  height: 400px;
   display: flex;
+  align-items: flex-end ;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding-bottom: 56px;
+}
+.project-desc-bottom {
+    height: 400px;
+  display: flex;
+  align-items: flex-end ;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding-bottom: 56px;
+}
+
+.bio-container-bottom-mobile {
+   height: 300px;
+  display: none;
   align-items: center ;
   justify-content: flex-start;
   overflow: hidden;
+  padding-bottom: 56px;
 }
-
 .about, .instagram {
   font-size: 32px;
+  padding-top: 0;
 }
 
 .name {
@@ -333,7 +350,9 @@ margin-bottom: 50px;
   display: flex;
   gap: 30px;
 }
-
+.download-mobile {
+  display: none;
+}
 .cv-text {
   color: #DCDCDC;
 }
@@ -509,12 +528,8 @@ margin-bottom: 50px;
   transform: scaleY(1.4);
   transform-origin: top;
 }
-.w-scroll-about {
 
-}
-.w-table-about {
 
-}
 .download {
   font-size: 32px;
 }
@@ -677,13 +692,12 @@ height: 160px;
   flex-direction: column;
   height: 100%;
   gap: 5px;
-  .content-about {
+ 
+}
 
+ .content-about {
   padding-bottom: 60px;
 }
-
-}
-
 .work-row {
   display: flex;
   width: 100%;
@@ -694,9 +708,7 @@ height: 160px;
   font-size: 16px;
   font-weight: 400;
 }
-.w-table-about >* {
- font-size: 16px;
-}
+
 }
 
 @media (max-height: 900px) {
@@ -759,6 +771,9 @@ height: 160px;
 
 .bio {
   font-size: 16px;
+}
+.project-sidebar-description {
+    font-size: 16px;
 }
 .w-role-about, .w-year-about {
   color: #DCDCDC;
@@ -841,7 +856,9 @@ width: 65%;
 .work-row-compact >*{
   font-size: 16px;
 }
-
+.about, .instagram {
+  padding-top: 3px;
+}
 }
 
 @media (max-width: 900px) {
@@ -867,6 +884,16 @@ width: 65%;
 .content-about {
   padding-bottom: 70px;
 }
+.project-sidebar-description {
+    font-size: 14px;
+}
+.download {
+ display: none;
+}
+.download-mobile {
+  display: block;
+}
+
  }
 
 @media (max-width: 768px) {
@@ -920,13 +947,16 @@ width: 65%;
 .bio {
   font-size: 22px;
 }
+.project-sidebar-description {
+    font-size: 22px;
+}
   .work-table {
   display: flex;
   flex-grow: 1;
   width: 100%;
   align-items: center;
   flex-direction: column;
-  height: 500px;
+  height: 600px;
   gap: 10px;
 }
 
@@ -947,11 +977,7 @@ width: 65%;
 .original-grid {
     display: flex !important;
 }
-
-}
-
-@media (max-width: 768px) {
- .app-row {
+.app-row {
   min-height: fit-content;
  }
  
@@ -973,10 +999,8 @@ width: 65%;
    font-size: 28px;
  
 }
- .work-table {
- 
-  height: 700px;
- }
+
+
 .content-about {
   min-height: 100vh !important;
 }
@@ -986,30 +1010,24 @@ width: 65%;
 .sidebar {
   height: fit-content;
 }
-.content {
-  padding-top: 50px;
+
+.bio-container-bottom-mobile {
+  display: flex;
+  padding-bottom: 0;
+}
+.bio-container-bottom {
+  display: none;
 }
 }
 
 @media (max-width: 600px) {
   .app-row {
-  padding: 32px 24px;
+  padding: 24px 12px;
+}
+.project-sidebar-description {
+    font-size: 18px;
 }
 }
-
-@media (max-width: 480px) {}
-
-@media (max-width: 375px) {}
-
-
-
-
-@media (max-height: 800px) {
- 
-}
-
-
-
 
 @media (max-height: 640px) {
  .bio-container-bottom {
@@ -1017,6 +1035,57 @@ width: 65%;
  }
 }
 
-@media (max-height: 600px) {
-  
+@media (min-height: 1200px) and (max-width: 1200px) {
+.app-row {
+  padding-top: 200px;
+  padding-bottom: 280px;
 }
+.content-top {
+  align-items: flex-start;
+}
+}
+
+@media (max-width: 520px) {
+  .footer {
+ display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  padding-right: 16px;
+}
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+.main-nav >*{
+   font-size: 22px;
+}
+.bio {
+  font-size: 18px;
+}
+.w-role {
+  font-size: 16px;
+  width: 140px;
+}
+.content-top {
+  flex-direction: column;
+  margin-bottom: 30px;
+  align-items: flex-start;
+}
+.photo2 {
+  object-fit:cover;
+  height: 300px;
+}
+
+.project-sidebar-description {
+    font-size: 16px;
+}
+.project-desc-bottom {
+  padding-bottom: 0;
+  padding-top: 26px;
+}
+}
+
+

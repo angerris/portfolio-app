@@ -98,12 +98,11 @@ a:hover {
     color: #858585;
 }
 .app-row {
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: row;
   width: 100vw;
   padding: 32px 30px;
-  overflow-y: hidden;
 }
 
 .sidebar {
@@ -394,27 +393,17 @@ margin-bottom: 50px;
   display: flex;
 }
 
-/* ==========================================================================
-   PROJECT PAGE (RIGHT SIDE SCROLL)
-   ========================================================================== */
-
-.content-project {
-  overflow-y: auto !important;
-  padding-bottom: 120px;
-}
 
 .content-project::-webkit-scrollbar { width: 0; height: 0; }
 .content-project { scrollbar-width: none; }
 
-/* Project pages: make ONLY right side scrollable */
 .content-project {
   overflow-y: auto !important;
-  padding-bottom: 140px; /* space so footer doesn't cover last media */
+  padding-bottom: 140px; 
 }
 
 .project-year-mid {
   font-size: 32px;
-  /* makes it stay between top and bottom */
   font-family: "ABC Diatype";
 }
 
@@ -1089,3 +1078,39 @@ width: 65%;
 }
 
 
+.fullscreen-loader {
+  position: fixed;
+
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+
+  width: calc(100vw + 2px);
+  height: calc(100vh + 2px);
+
+  background-color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999999;
+
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+
+.loader-image {
+  width: 100px;
+  height: 100px;
+}
+
+
+@media (hover: none), (pointer: coarse) {
+  .custom-cursor {
+    display: none !important;
+  }
+}

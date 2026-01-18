@@ -92,6 +92,7 @@ window.removeEventListener("mouseup", handleMouseUp);
   return (
     <div
       ref={cursorElementRef}
+      className="custom-cursor"
       style={{
         position: "fixed",
         left: 0,

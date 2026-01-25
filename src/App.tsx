@@ -216,39 +216,21 @@ function ScrollToTopButton(props: { isVisible: boolean; onClick: () => void }): 
 
 
 function App(): JSX.Element {
- const [activeSection, setActiveSection] = useState<Section>(() => {
-  const rawHashValue = window.location.hash.replace("#", "");
-  if (!rawHashValue) return "main";
-
-  const decodedHashValue = decodeURIComponent(rawHashValue);
-
-  const isKnownProject = Object.prototype.hasOwnProperty.call(
-    projectContentByTitle,
-    decodedHashValue
-  );
-
-  const isKnownSection =
-    decodedHashValue === "main" || decodedHashValue === "about";
-
-  if (isKnownProject || isKnownSection) {
-    return decodedHashValue as Section;
-  }
-
-  return "main";
-});
 
 
-  const isProjectSection = activeSection !== "main" && activeSection !== "about";
-  const activeProject = isProjectSection ? projectContentByTitle[activeSection] : null;
+  const [isAppVisible, setIsAppVisible] = useState(false);
 
   useEffect(() => {
-  function syncSectionFromHash(): void {
-    const rawHashValue = window.location.hash.replace("#", "");
+    const animationFrameId = requestAnimationFrame(() => {
+      setIsAppVisible(true);
+    });
 
-    if (!rawHashValue) {
-      setActiveSection("main");
-      return;
-    }
+    return () => cancelAnimationFrame(animationFrameId);
+  }, []);
+
+  const [activeSection, setActiveSection] = useState<Section>(() => {
+    const rawHashValue = window.location.hash.replace("#", "");
+    if (!rawHashValue) return "main";
 
     const decodedHashValue = decodeURIComponent(rawHashValue);
 
@@ -261,43 +243,73 @@ function App(): JSX.Element {
       decodedHashValue === "main" || decodedHashValue === "about";
 
     if (isKnownProject || isKnownSection) {
-      setActiveSection(decodedHashValue as Section);
+      return decodedHashValue as Section;
+    }
+
+    return "main";
+  });
+
+
+  const isProjectSection = activeSection !== "main" && activeSection !== "about";
+  const activeProject = isProjectSection ? projectContentByTitle[activeSection] : null;
+
+  useEffect(() => {
+    function syncSectionFromHash(): void {
+      const rawHashValue = window.location.hash.replace("#", "");
+
+      if (!rawHashValue) {
+        setActiveSection("main");
+        return;
+      }
+
+      const decodedHashValue = decodeURIComponent(rawHashValue);
+
+      const isKnownProject = Object.prototype.hasOwnProperty.call(
+        projectContentByTitle,
+        decodedHashValue
+      );
+
+      const isKnownSection =
+        decodedHashValue === "main" || decodedHashValue === "about";
+
+      if (isKnownProject || isKnownSection) {
+        setActiveSection(decodedHashValue as Section);
+        return;
+      }
+
+      setActiveSection("main");
+    }
+
+    // Ensure correct state if something changed hash before React mounted
+    syncSectionFromHash();
+
+    window.addEventListener("hashchange", syncSectionFromHash);
+
+    return () => {
+      window.removeEventListener("hashchange", syncSectionFromHash);
+    };
+  }, []);
+  // 2) INSIDE App() add state + effect (near your other state)
+
+  const [isScrollToTopVisible, setIsScrollToTopVisible] = useState(false);
+
+  useEffect(() => {
+    if (!isProjectSection) {
+      setIsScrollToTopVisible(false);
       return;
     }
 
-    setActiveSection("main");
-  }
+    function handleScroll(): void {
+      setIsScrollToTopVisible(window.scrollY > 300);
+    }
 
-  // Ensure correct state if something changed hash before React mounted
-  syncSectionFromHash();
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
-  window.addEventListener("hashchange", syncSectionFromHash);
-
-  return () => {
-    window.removeEventListener("hashchange", syncSectionFromHash);
-  };
-}, []);
-// 2) INSIDE App() add state + effect (near your other state)
-
-const [isScrollToTopVisible, setIsScrollToTopVisible] = useState(false);
-
-useEffect(() => {
-  if (!isProjectSection) {
-    setIsScrollToTopVisible(false);
-    return;
-  }
-
-  function handleScroll(): void {
-    setIsScrollToTopVisible(window.scrollY > 300);
-  }
-
-  handleScroll();
-  window.addEventListener("scroll", handleScroll, { passive: true });
-
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
-  };
-}, [isProjectSection]);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isProjectSection]);
 
 
   const [mediaLoadingTotalCount, setMediaLoadingTotalCount] = useState(0);
@@ -319,218 +331,220 @@ useEffect(() => {
 
   return (
     <>
-      <CustomCursor size={48} />
+      <div className={`app-fade ${isAppVisible ? "is-visible" : ""}`}>
+        <CustomCursor size={48} />
 
-      {isMediaLoading && <FullscreenLoader />}
+        {isMediaLoading && <FullscreenLoader />}
 
-      <div className="app-row">
-        <aside className="sidebar">
-          <div className="main-nav">
-  <a className="name" onClick={() => (window.location.hash = encodeURIComponent("main"))}>
-  Alen Aslanyan
-</a>
-<a className="about" onClick={() => (window.location.hash = encodeURIComponent("about"))}>
-  About
-</a>
-            <a
-              className="instagram"
-              target="_blank"
-              href="https://www.instagram.com/iamalenaslanyan/"
-            >
-              Instagram
-            </a>
-          </div>
-
-          <div className="bio-main">
-            <div className="bio-container">
-              <p className="bio">
-               Designer, art director and 3D enthusiast. A little underground music nerd. Based in Yerevan, Armenia.
-              </p>
+        <div className="app-row">
+          <aside className="sidebar">
+            <div className="main-nav">
+              <a className="name" onClick={() => (window.location.hash = encodeURIComponent("main"))}>
+                Alen Aslanyan
+              </a>
+              <a className="about" onClick={() => (window.location.hash = encodeURIComponent("about"))}>
+                About
+              </a>
+              <a
+                className="instagram"
+                target="_blank"
+                href="https://www.instagram.com/iamalenaslanyan/"
+              >
+                Instagram
+              </a>
             </div>
 
-            {activeSection === "main" && <img src="https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768768528/photo_rw3nor.png" alt="Example" className="photo" />}
-
-            {activeSection === "about" && (
-              <div className="bio-container-bottom">
+            <div className="bio-main">
+              <div className="bio-container">
                 <p className="bio">
-                  Armenian multidisciplinary designer and art director with 8+ years of experience working on visual
-                  campaigns, visual identities, typography, editorial, motion design and especially helping underground
-                  music artist to promote their music through my work. My inspiration comes from my own work of curation
-                  based on art, design, culture and music.
-                </p>
-              </div>
-            )}
-
-            {activeProject && (
-              <>
-                <div className="project-year-mid">{activeProject.year}</div>
-
-                <div className="project-desc-bottom">
-                  <p className="project-sidebar-label">Description</p>
-                  <p className="project-sidebar-description">{activeProject.description}</p>
-                </div>
-              </>
-            )}
-          </div>
-        </aside>
-
-        <main className={`content ${isProjectSection ? "content-project" : ""}`}>
-          {activeSection === "about" && (
-            <div className="content-about">
-              <img src="https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768768600/photo2_rfaag7.png" alt="Example" className="photo2" />
-              <div className="bio-container-bottom-mobile">
-                <p className="bio">
-                  Armenian multidisciplinary designer and art director with 8+ years of experience working on visual
-                  campaigns, visual identities, typography, editorial, motion design and especially helping underground
-                  music artist to promote their music through my work. My inspiration comes from my own work of curation
-                  based on art, design, culture and music.
+                  Designer, art director and 3D enthusiast. A little underground music nerd. Based in Yerevan, Armenia.
                 </p>
               </div>
 
-              <h3 className="section-title">Work Experience</h3>
-
-              <div className="work-scroll w-scroll-about">
-                <ul className="work-table w-table-about original-grid">
-                  {workItems2.map((item) => (
-                    <li key={item.title} className="work-row">
-                      <span className="w-title-about">{item.title}</span>
-                      <div className="w-role-container-about">
-                        <span className="w-role-about">{item.role}</span>
-                      </div>
-                      <span className="w-year-about">{item.year}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <ul className="work-table w-table-about work-grid-compact">
-                  {workItems2.map((item) => (
-                    <li key={`${item.title}-compact`} className="work-row work-row-compact">
-                      <span className="w-title-about w-title-compact">
-                        {item.title} <span className="item-role-compact">({item.role})</span>
-                      </span>
-                      <span className="w-year-about">{item.year}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          )}
-
-          {activeSection === "main" && (
-            <>
-              <div className="content-top">
-                <p className="hero-title">PORTFOLIO</p>
-                <div className="year-stack">
-                  <span>2023</span>
-                  <span>/2025</span>
-                </div>
-              </div>
-
-              <h3 className="section-title">Work Selection</h3>
-              <div className="work-scroll">
-                <ul className="work-table">
-                  {workItems.map((item) => (
-                    <li
-                      key={item.title}
-                      data-cursor="hover"
-                      className={`work-row ${activeSection === item.title ? "active" : ""}`}
-                    onClick={() => {
-  const nextProject = projectContentByTitle[item.title];
-
-  resetMediaLoading(Math.min(3, nextProject.media.length));
-
-  window.location.hash = encodeURIComponent(item.title);
-
-  requestAnimationFrame(() => {
-    window.scrollTo({ top: 0 });
-  });
-}}
-
-                    >
-                      <span className="w-title">{item.title}</span>
-                      <div className="w-role-container">
-                        <span className="w-role">{item.role}</span>
-                      </div>
-                      <span className="w-year">{item.year}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </>
-          )}
-
-{activeProject && (
-  <div className="project-media">
-    {activeProject.media.map((mediaItem, index) => {
-      if (mediaItem.kind === "image") {
-        return (
-          <img
-            key={`${mediaItem.src}-${index}`}
-            src={mediaItem.src}
-            alt={mediaItem.alt ?? activeProject.title}
-            className="project-image"
-            onLoad={markOneMediaAsReady}
-          />
-        );
-      }
-
-      return (
-        <video
-          key={`${mediaItem.src}-${index}`}
-          className="project-video"
-          src={mediaItem.src}
-          autoPlay
-          muted
-          loop
-          playsInline
-          disablePictureInPicture
-          preload="auto"
-          onCanPlay={markOneMediaAsReady}
-        />
-      );
-    })}
-  </div>
-)}
-
-
-          {!isProjectSection && (
-            <footer className="footer">
-              <div className="footer-links">
-                <a href="mailto:helloalenaslanyan@gmail.com">Email</a>
-                <a href="https://am.linkedin.com/in/alen-aslanyan-7a8285244" target="_blank">
-                  LinkedIn
-                </a>
-              </div>
-
-              {activeSection === "main" && <div className="footer-note">Hire me, I’m cool</div>}
+              {activeSection === "main" && <img src="https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768768528/photo_rw3nor.png" alt="Example" className="photo" />}
 
               {activeSection === "about" && (
+                <div className="bio-container-bottom">
+                  <p className="bio">
+                    Armenian multidisciplinary designer and art director with 8+ years of experience working on visual
+                    campaigns, visual identities, typography, editorial, motion design and especially helping underground
+                    music artist to promote their music through my work. My inspiration comes from my own work of curation
+                    based on art, design, culture and music.
+                  </p>
+                </div>
+              )}
+
+              {activeProject && (
                 <>
-                  <div className="download">
-                    <p className="cv-text">More information on my CV:</p>
-                    <a href="Alen_Aslanyan_CV.pdf" download="Alen Aslanyan CV.pdf">
-                      Download
-                    </a>
-                  </div>
-                  <div className="download-mobile">
-                    <a href="Alen_Aslanyan_CV.pdf" download="Alen Aslanyan CV.pdf">
-                      Download CV
-                    </a>
+                  <div className="project-year-mid">{activeProject.year}</div>
+
+                  <div className="project-desc-bottom">
+                    <p className="project-sidebar-label">Description</p>
+                    <p className="project-sidebar-description">{activeProject.description}</p>
                   </div>
                 </>
               )}
-            </footer>
-          )}
-        </main>
-      </div>
-     
+            </div>
+          </aside>
 
-<ScrollToTopButton
-  isVisible={isProjectSection && !isMediaLoading && isScrollToTopVisible}
-  onClick={() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }}
-/>
+          <main className={`content ${isProjectSection ? "content-project" : ""}`}>
+            {activeSection === "about" && (
+              <div className="content-about">
+                <img src="https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768768600/photo2_rfaag7.png" alt="Example" className="photo2" />
+                <div className="bio-container-bottom-mobile">
+                  <p className="bio">
+                    Armenian multidisciplinary designer and art director with 8+ years of experience working on visual
+                    campaigns, visual identities, typography, editorial, motion design and especially helping underground
+                    music artist to promote their music through my work. My inspiration comes from my own work of curation
+                    based on art, design, culture and music.
+                  </p>
+                </div>
+
+                <h3 className="section-title">Work Experience</h3>
+
+                <div className="work-scroll w-scroll-about">
+                  <ul className="work-table w-table-about original-grid">
+                    {workItems2.map((item) => (
+                      <li key={item.title} className="work-row">
+                        <span className="w-title-about">{item.title}</span>
+                        <div className="w-role-container-about">
+                          <span className="w-role-about">{item.role}</span>
+                        </div>
+                        <span className="w-year-about">{item.year}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <ul className="work-table w-table-about work-grid-compact">
+                    {workItems2.map((item) => (
+                      <li key={`${item.title}-compact`} className="work-row work-row-compact">
+                        <span className="w-title-about w-title-compact">
+                          {item.title} <span className="item-role-compact">({item.role})</span>
+                        </span>
+                        <span className="w-year-about">{item.year}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
+
+            {activeSection === "main" && (
+              <>
+                <div className="content-top">
+                  <p className="hero-title">PORTFOLIO</p>
+                  <div className="year-stack">
+                    <span>2023</span>
+                    <span>/2025</span>
+                  </div>
+                </div>
+
+                <h3 className="section-title">Work Selection</h3>
+                <div className="work-scroll">
+                  <ul className="work-table">
+                    {workItems.map((item) => (
+                      <li
+                        key={item.title}
+                        data-cursor="hover"
+                        className={`work-row ${activeSection === item.title ? "active" : ""}`}
+                        onClick={() => {
+                          const nextProject = projectContentByTitle[item.title];
+
+                          resetMediaLoading(Math.min(3, nextProject.media.length));
+
+                          window.location.hash = encodeURIComponent(item.title);
+
+                          requestAnimationFrame(() => {
+                            window.scrollTo({ top: 0 });
+                          });
+                        }}
+
+                      >
+                        <span className="w-title">{item.title}</span>
+                        <div className="w-role-container">
+                          <span className="w-role">{item.role}</span>
+                        </div>
+                        <span className="w-year">{item.year}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </>
+            )}
+
+            {activeProject && (
+              <div className="project-media">
+                {activeProject.media.map((mediaItem, index) => {
+                  if (mediaItem.kind === "image") {
+                    return (
+                      <img
+                        key={`${mediaItem.src}-${index}`}
+                        src={mediaItem.src}
+                        alt={mediaItem.alt ?? activeProject.title}
+                        className="project-image"
+                        onLoad={markOneMediaAsReady}
+                      />
+                    );
+                  }
+
+                  return (
+                    <video
+                      key={`${mediaItem.src}-${index}`}
+                      className="project-video"
+                      src={mediaItem.src}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      disablePictureInPicture
+                      preload="auto"
+                      onCanPlay={markOneMediaAsReady}
+                    />
+                  );
+                })}
+              </div>
+            )}
+
+
+            {!isProjectSection && (
+              <footer className="footer">
+                <div className="footer-links">
+                  <a href="mailto:helloalenaslanyan@gmail.com">Email</a>
+                  <a href="https://am.linkedin.com/in/alen-aslanyan-7a8285244" target="_blank">
+                    LinkedIn
+                  </a>
+                </div>
+
+                {activeSection === "main" && <div className="footer-note">Hire me, I’m cool</div>}
+
+                {activeSection === "about" && (
+                  <>
+                    <div className="download">
+                      <p className="cv-text">More information on my CV:</p>
+                      <a href="Alen_Aslanyan_CV.pdf" download="Alen Aslanyan CV.pdf">
+                        Download
+                      </a>
+                    </div>
+                    <div className="download-mobile">
+                      <a href="Alen_Aslanyan_CV.pdf" download="Alen Aslanyan CV.pdf">
+                        Download CV
+                      </a>
+                    </div>
+                  </>
+                )}
+              </footer>
+            )}
+          </main>
+        </div>
+
+
+        <ScrollToTopButton
+          isVisible={isProjectSection && !isMediaLoading && isScrollToTopVisible}
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        />
+      </div>
 
     </>
   );

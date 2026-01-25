@@ -1,4 +1,4 @@
-import { useState, type JSX } from "react";
+import { useEffect, useState, type JSX } from "react";
 import "./App.css";
 import { CustomCursor } from "./CustomCursor";
 
@@ -199,11 +199,106 @@ function FullscreenLoader(): JSX.Element {
   );
 }
 
+function ScrollToTopButton(props: { isVisible: boolean; onClick: () => void }): JSX.Element {
+  if (!props.isVisible) return <></>;
+
+  return (
+    <button
+      type="button"
+      className="scroll-to-top-btn"
+      onClick={props.onClick}
+      aria-label="Scroll to top"
+    >
+      <img src="up.png" alt="" className="scroll-to-top-img" draggable={false} />
+    </button>
+  );
+}
+
+
 function App(): JSX.Element {
-  const [activeSection, setActiveSection] = useState<Section>("main");
+ const [activeSection, setActiveSection] = useState<Section>(() => {
+  const rawHashValue = window.location.hash.replace("#", "");
+  if (!rawHashValue) return "main";
+
+  const decodedHashValue = decodeURIComponent(rawHashValue);
+
+  const isKnownProject = Object.prototype.hasOwnProperty.call(
+    projectContentByTitle,
+    decodedHashValue
+  );
+
+  const isKnownSection =
+    decodedHashValue === "main" || decodedHashValue === "about";
+
+  if (isKnownProject || isKnownSection) {
+    return decodedHashValue as Section;
+  }
+
+  return "main";
+});
+
 
   const isProjectSection = activeSection !== "main" && activeSection !== "about";
   const activeProject = isProjectSection ? projectContentByTitle[activeSection] : null;
+
+  useEffect(() => {
+  function syncSectionFromHash(): void {
+    const rawHashValue = window.location.hash.replace("#", "");
+
+    if (!rawHashValue) {
+      setActiveSection("main");
+      return;
+    }
+
+    const decodedHashValue = decodeURIComponent(rawHashValue);
+
+    const isKnownProject = Object.prototype.hasOwnProperty.call(
+      projectContentByTitle,
+      decodedHashValue
+    );
+
+    const isKnownSection =
+      decodedHashValue === "main" || decodedHashValue === "about";
+
+    if (isKnownProject || isKnownSection) {
+      setActiveSection(decodedHashValue as Section);
+      return;
+    }
+
+    setActiveSection("main");
+  }
+
+  // Ensure correct state if something changed hash before React mounted
+  syncSectionFromHash();
+
+  window.addEventListener("hashchange", syncSectionFromHash);
+
+  return () => {
+    window.removeEventListener("hashchange", syncSectionFromHash);
+  };
+}, []);
+// 2) INSIDE App() add state + effect (near your other state)
+
+const [isScrollToTopVisible, setIsScrollToTopVisible] = useState(false);
+
+useEffect(() => {
+  if (!isProjectSection) {
+    setIsScrollToTopVisible(false);
+    return;
+  }
+
+  function handleScroll(): void {
+    setIsScrollToTopVisible(window.scrollY > 300);
+  }
+
+  handleScroll();
+  window.addEventListener("scroll", handleScroll, { passive: true });
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, [isProjectSection]);
+
 
   const [mediaLoadingTotalCount, setMediaLoadingTotalCount] = useState(0);
   const [mediaLoadedCount, setMediaLoadedCount] = useState(0);
@@ -231,12 +326,12 @@ function App(): JSX.Element {
       <div className="app-row">
         <aside className="sidebar">
           <div className="main-nav">
-            <a className="name" onClick={() => setActiveSection("main")}>
-              Alen Aslanyan
-            </a>
-            <a className="about" onClick={() => setActiveSection("about")}>
-              About
-            </a>
+  <a className="name" onClick={() => (window.location.hash = encodeURIComponent("main"))}>
+  Alen Aslanyan
+</a>
+<a className="about" onClick={() => (window.location.hash = encodeURIComponent("about"))}>
+  About
+</a>
             <a
               className="instagram"
               target="_blank"
@@ -254,7 +349,7 @@ function App(): JSX.Element {
               </p>
             </div>
 
-            {activeSection === "main" && <img src="photo.png" alt="Example" className="photo" />}
+            {activeSection === "main" && <img src="https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768768528/photo_rw3nor.png" alt="Example" className="photo" />}
 
             {activeSection === "about" && (
               <div className="bio-container-bottom">
@@ -283,7 +378,7 @@ function App(): JSX.Element {
         <main className={`content ${isProjectSection ? "content-project" : ""}`}>
           {activeSection === "about" && (
             <div className="content-about">
-              <img src="photo2.png" alt="Example" className="photo2" />
+              <img src="https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768768600/photo2_rfaag7.png" alt="Example" className="photo2" />
               <div className="bio-container-bottom-mobile">
                 <p className="bio">
                   Armenian multidisciplinary designer and art director with 8+ years of experience working on visual
@@ -340,11 +435,18 @@ function App(): JSX.Element {
                       key={item.title}
                       data-cursor="hover"
                       className={`work-row ${activeSection === item.title ? "active" : ""}`}
-                      onClick={() => {
-                        const nextProject = projectContentByTitle[item.title];
-                        resetMediaLoading(nextProject.media.length);
-                        setActiveSection(item.title);
-                      }}
+                    onClick={() => {
+  const nextProject = projectContentByTitle[item.title];
+
+  resetMediaLoading(Math.min(3, nextProject.media.length));
+
+  window.location.hash = encodeURIComponent(item.title);
+
+  requestAnimationFrame(() => {
+    window.scrollTo({ top: 0 });
+  });
+}}
+
                     >
                       <span className="w-title">{item.title}</span>
                       <div className="w-role-container">
@@ -413,7 +515,7 @@ function App(): JSX.Element {
                   </div>
                   <div className="download-mobile">
                     <a href="Alen_Aslanyan_CV.pdf" download="Alen Aslanyan CV.pdf">
-                      Download CV 🡣
+                      Download CV
                     </a>
                   </div>
                 </>
@@ -422,6 +524,15 @@ function App(): JSX.Element {
           )}
         </main>
       </div>
+     
+
+<ScrollToTopButton
+  isVisible={isProjectSection && !isMediaLoading && isScrollToTopVisible}
+  onClick={() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }}
+/>
+
     </>
   );
 }

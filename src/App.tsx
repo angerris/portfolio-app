@@ -17,7 +17,7 @@ const workItems = [
   { title: "Katun", role: "Graphic Design", year: "2023" },
   { title: "Lareman", role: "Art Direction", year: "2025" },
   { title: "Hornet Flow", role: "Art Direction", year: "2024" },
-  { title: "Privateum Global", role: "Art Direction", year: "2023" },
+  { title: "On", role: "Art Direction", year: "2023" },
 ];
 
 const workItems2 = [
@@ -170,8 +170,8 @@ const projectContentByTitle: Record<WorkItemTitle, ProjectContent> = {
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749492/6_iz9n4x.png" },
     ],
   },
-  "Privateum Global": {
-    title: "Privateum Global",
+  "On": {
+    title: "On",
     year: "2023",
     description:
       "ON is a hub for the ultimate music enthusiasts. This project covers the full branding spectrum, blending digital interfaces with physical assets to connect melomaniacs across all musical boundaries.",
@@ -344,8 +344,7 @@ useEffect(() => {
           <div className="bio-main">
             <div className="bio-container">
               <p className="bio">
-                27 years old, designer, art director and 3D enthusiast. A little underground music nerd. Based in Armenia,
-                Yerevan and currently working at Soft Construct.
+               Designer, art director and 3D enthusiast. A little underground music nerd. Based in Yerevan, Armenia.
               </p>
             </div>
 
@@ -508,7 +507,7 @@ useEffect(() => {
               {activeSection === "about" && (
                 <>
                   <div className="download">
-                    <p className="cv-text">More information on my CV below:</p>
+                    <p className="cv-text">More information on my CV:</p>
                     <a href="Alen_Aslanyan_CV.pdf" download="Alen Aslanyan CV.pdf">
                       Download
                     </a>

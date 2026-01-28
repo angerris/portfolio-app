@@ -7,6 +7,7 @@ body,
 #root {
   color: #000000;
   background-color: #fff;
+  font-family: "ABC Diatype";
 }
 
 /* ==========================================================================
@@ -15,16 +16,16 @@ body,
 
 @font-face {
   font-family: 'ABC Diatype';
-  src: url('fonts/abc-diatype-regular.woff2') format('woff2'),
-       url('fonts/abc-diatype-regular.woff') format('woff');
+  src: url('/fonts/abc-diatype-regular.woff2') format('woff2'),
+    url('/fonts/abc-diatype-regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Junicode';
-  src: url('fonts/junicode-regularcondensed-webfont.woff2') format('woff2'),
-       url('fonts/junicode-regularcondensed-webfont.woff') format('woff');
+  src: url('/fonts/junicode-regularcondensed-webfont.woff2') format('woff2'),
+    url('/fonts/junicode-regularcondensed-webfont.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
@@ -96,6 +97,7 @@ h6 {
 
 .work-scroll {
   scrollbar-width: none;
+  min-height: fit-content;
 }
 
 .w-scroll-about {
@@ -118,8 +120,15 @@ h6 {
   padding: 32px 30px;
 }
 
+@media (max-height: 875px) {
+  .app-row {
+    padding: 16px 30px;
+  }
+}
+
+
 .sidebar {
-  width: 35%;
+  width: 31%;
   flex-direction: column;
   gap: 10px;
   box-sizing: border-box;
@@ -132,9 +141,14 @@ h6 {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  width: 65%;
+  width: 69%;
   position: relative;
 }
+
+
+
+
+
 
 /* ==========================================================================
    SIDEBAR: BIO / NAV
@@ -161,11 +175,12 @@ h6 {
 }
 
 .bio-container {
-  margin-top: 60px;
-  margin-bottom: 50px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  min-height: 220px;
+  max-height: 220px;
+  flex-grow: 1;
 }
 
 .bio-container-bottom {
@@ -190,11 +205,12 @@ h6 {
 .instagram {
   font-size: 32px;
   padding-top: 0;
+  font-family: "ABC Diatype";
 }
 
 .name {
   font-family: "Junicode";
-  font-size: 28px;
+  font-size: 32px;
 }
 
 /* ==========================================================================
@@ -204,18 +220,17 @@ h6 {
 .content-top {
   display: flex;
   justify-content: space-between;
-  height: 200px;
+  height: 220px;
   align-items: center;
   flex-direction: row;
 }
 
 .year-stack {
-  font-size: 80px;
-  line-height: 70px;
-  padding-top: 20px;
+  font-size: 100px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  justify-content: center;
   color: #DCDCDC;
   font-family: 'Junicode';
 }
@@ -248,6 +263,8 @@ h6 {
 
 .photo2 {
   object-fit: cover;
+    width: 100%;
+  height: 100%;
 }
 
 /* ==========================================================================
@@ -262,6 +279,7 @@ h6 {
   flex-direction: column;
   height: 100%;
   gap: 14px;
+  min-height: fit-content;
 }
 
 .work-row {
@@ -271,7 +289,7 @@ h6 {
   justify-content: space-between;
   height: 35px;
   border-bottom: 1px dotted #DCDCDC;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 400;
 }
 
@@ -284,7 +302,6 @@ h6 {
   font-weight: 400;
   color: #DCDCDC;
   height: 50px;
-  padding-top: 12px;
 }
 
 .w-role,
@@ -329,7 +346,7 @@ h6 {
   align-items: center;
   justify-content: space-between;
   background-color: #fff;
-  padding-top: 16px;
+  font-family: "ABC Diatype";
 }
 
 .footer-note {
@@ -352,6 +369,7 @@ h6 {
 
 .download-mobile {
   display: none;
+  font-size: 24px;
 }
 
 .cv-text {
@@ -365,9 +383,8 @@ h6 {
 .content-about {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   height: 100%;
-  padding-bottom: 80px;
+  gap: 40px;
 }
 
 .w-role-about,
@@ -417,21 +434,13 @@ h6 {
 }
 
 .project-desc-bottom {
-  height: 400px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  overflow: hidden;
-  padding-bottom: 56px;
-
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
+  padding-bottom: 32px;
 }
 
 .project-sidebar-label {
   font-size: 32px;
   color: #dcdcdc;
+  padding-bottom: 16px;
 }
 
 .project-sidebar-description {
@@ -495,10 +504,10 @@ h6 {
 }
 
 .project-sidebar {
-  margin-top: 40px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .project-sidebar-top {
@@ -554,7 +563,8 @@ h6 {
    CUSTOM CURSOR (TOUCH DEVICES)
    ========================================================================== */
 
-@media (hover: none), (pointer: coarse) {
+@media (hover: none),
+(pointer: coarse) {
   .custom-cursor {
     display: none !important;
   }
@@ -576,7 +586,8 @@ h6 {
   background: transparent;
 
   cursor: pointer;
-  z-index: 9999998; /* below loader (9999999), above cursor/content */
+  z-index: 9999998;
+  /* below loader (9999999), above cursor/content */
 
   display: flex;
   align-items: center;
@@ -593,39 +604,31 @@ h6 {
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
-
-/* 1. Large screens */
-@media (min-width: 1920px) {
-  .content {
-    gap: 100px;
+@media (max-height: 850px) {
+  .photo2 {
+    height: 310px;
   }
-  .bio {
-    margin-top: 90px;
-  }
+.hero-title {
+  font-size: 100px;
+}
+.content-top {
+  min-height: 150px;
+  max-height: 150px;
+}
+.bio-container {
+   min-height: 150px;
+  max-height: 150px;
+}
+.year-stack {
+  font-size: 70px;
 }
 
-@media (max-width: 1750px) {
-  .year-stack {
-    font-size: 70px;
-    line-height: 60px;
-  }
-
-  .hero-title {
-    font-size: 120px;
-  }
-
-  .content-top {
-    height: 160px;
-  }
 }
 
-@media (max-width: 1600px) {
+
+@media (max-width: 1680px) and (max-height: 960px){
   .hero-title {
     font-size: 130px;
-  }
-
-  .bio {
-    font-size: 18px;
   }
 
   .footer-note {
@@ -639,6 +642,28 @@ h6 {
   .download {
     font-size: 28px;
   }
+
+    .photo2 {
+    height: 310px;
+  }
+.hero-title {
+  font-size: 100px;
+}
+.content-top {
+  min-height: 100px;
+  max-height: 100px;
+}
+.bio-container {
+   min-height: 100px;
+  max-height: 100px;
+}
+.year-stack {
+  font-size: 60px;
+}
+.work-row {
+  height: 30px;
+  font-size: 18px;
+}
 }
 
 @media (max-width: 1440px) {
@@ -671,13 +696,7 @@ h6 {
     font-size: 24px;
   }
 
-  .year-stack {
-    justify-self: flex-start;
-    flex-direction: row;
-    align-items: flex-end;
-    font-size: 60px;
-    padding-top: 0;
-  }
+
 
   .sidebar {
     width: 40%;
@@ -707,89 +726,6 @@ h6 {
   }
 }
 
-@media (max-height: 1000px) {
-  .hero-title {
-    font-size: 100px;
-    margin: 0;
-  }
-
-  .content-top {
-    height: 150px;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .year-stack {
-    justify-self: flex-start;
-    flex-direction: row;
-    align-items: flex-end;
-    font-size: 70px;
-  }
-
-  .sidebar {
-    width: 28%;
-  }
-
-  .work-table {
-    display: flex;
-    flex-grow: 1;
-    width: 100%;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-    gap: 5px;
-  }
-
-  .content-about {
-    padding-bottom: 60px;
-  }
-
-  .work-row {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    height: 35px;
-    border-bottom: 1px dotted #DCDCDC;
-    font-size: 16px;
-    font-weight: 400;
-  }
-}
-
-@media (max-height: 900px) {
-  .w-table-about > * {
-    font-size: 18px;
-  }
-}
-
-@media (max-height: 700px) {
-  .work-table {
-    display: flex;
-    flex-grow: 1;
-    width: 100%;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-    gap: 4px;
-  }
-
-  .work-row {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    height: 25px;
-    border-bottom: 1px dotted #DCDCDC;
-    font-size: 16px;
-    font-weight: 400;
-  }
-
-  .content-about {
-    padding-bottom: 40px;
-  }
-}
-
 @media (max-width: 1280px) {
   .hero-title {
     font-size: 70px;
@@ -802,17 +738,10 @@ h6 {
     justify-content: space-between;
     align-items: center;
   }
+   .hero-title {
+    font-size: 80px;
+   }
 
-  .year-stack {
-    justify-self: flex-start;
-    flex-direction: row;
-    align-items: flex-end;
-    font-size: 50px;
-  }
-
-  .main-nav > * {
-    font-size: 20px;
-  }
 
   .bio {
     font-size: 16px;
@@ -858,15 +787,19 @@ h6 {
   }
 
   .work-row-compact {
-    height: 35px;
+    height: 24px;
+  }
+   .download {
+    display: none;
   }
 
-  .footer > * {
-    font-size: 13px;
+  .download-mobile {
+    display: block;
   }
+  
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1080px) and (max-height: 750px)  {
   .content-top {
     height: 100px;
   }
@@ -882,13 +815,6 @@ h6 {
   .hero-title {
     font-size: 60px;
     margin: 0;
-  }
-
-  .year-stack {
-    justify-self: flex-start;
-    flex-direction: row;
-    align-items: flex-end;
-    font-size: 40px;
   }
 
   .w-role-about,
@@ -910,11 +836,11 @@ h6 {
     display: flex;
   }
 
-  .w-table-about > * {
+  .w-table-about>* {
     font-size: 16px;
   }
 
-  .work-row-compact > * {
+  .work-row-compact>* {
     font-size: 16px;
   }
 
@@ -922,30 +848,80 @@ h6 {
   .instagram {
     padding-top: 3px;
   }
+    .download {
+    display: none;
+  }
+
+  .download-mobile {
+    display: block;
+  }
 }
 
+@media (max-width: 1080px) and (max-height: 620px) {
+.hero-title {
+  font-size: 60px;
+}
+.content-top {
+  min-height: 60px;
+  max-height: 60px;
+}
+.bio-container {
+   min-height: 60px;
+  max-height: 60px;
+}
+.year-stack {
+  font-size: 50px;
+  line-height: 40px;
+}
+
+.work-table {
+  gap: 6px;
+}
+.work-row {
+  height: 24px;
+    font-size: 18px;
+}
+
+}
+@media (max-width: 1080px) and (max-height: 800px) {
+.hero-title {
+  font-size: 60px;
+}
+.content-top {
+  min-height: 70px;
+  max-height: 70px;
+}
+.bio-container {
+   min-height: 70px;
+  max-height: 70px;
+}
+.year-stack {
+  font-size: 50px;
+  line-height: 40px;
+}
+
+.work-table {
+  gap: 8px;
+}
+
+
+}
 @media (max-width: 900px) {
   .hero-title {
     font-size: 45px;
     margin: 0;
   }
 
-  .year-stack {
-    justify-self: flex-start;
-    flex-direction: row;
-    align-items: flex-end;
-    font-size: 35px;
-  }
 
-  .main-nav > * {
+  .main-nav>* {
     font-size: 16px;
   }
 
-  .footer > * {
+  .footer>* {
     font-size: 18px;
   }
 
-  .work-row-compact > * {
+  .work-row-compact>* {
     font-size: 16px;
   }
 
@@ -957,13 +933,7 @@ h6 {
     font-size: 14px;
   }
 
-  .download {
-    display: none;
-  }
 
-  .download-mobile {
-    display: block;
-  }
 }
 
 @media (max-width: 768px) {
@@ -972,7 +942,10 @@ h6 {
     overflow-x: scroll;
     min-height: fit-content;
   }
-
+.bio-container {
+   min-height: 170px;
+  max-height: 170px;
+}
   .sidebar {
     width: 100%;
     flex-direction: column;
@@ -1013,11 +986,11 @@ h6 {
     height: 100%;
   }
 
-  .main-nav > * {
+  .main-nav>* {
     font-size: 28px;
   }
 
-  .footer > * {
+  .footer>* {
     font-size: 28px;
   }
 
@@ -1049,12 +1022,12 @@ h6 {
     font-size: 18px;
     font-weight: 400;
 
-    height: 45px;
+    height: 38px;
   }
 
   .photo2 {
     object-fit: cover;
-    height: 500px;
+    height: 300px;
   }
 
   .w-title-about {
@@ -1085,6 +1058,13 @@ h6 {
   .bio-container-bottom {
     display: none;
   }
+  
+  .year-stack {
+    justify-self: flex-start;
+    flex-direction: row;
+    align-items: flex-end;
+    font-size: 35px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1092,102 +1072,6 @@ h6 {
     padding: 24px 12px;
   }
 
-  .project-sidebar-description {
-    font-size: 18px;
-  }
-}
-
-@media (max-height: 640px) {
-  .bio-container-bottom {
-    height: 400px;
-  }
-
-  .work-grid-compact {
-    display: flex !important;
-    height: 600px;
-    display: flex;
-    gap: 0px;
-    padding-top: 10px;
-  }
-}
-
-@media (max-height: 590px) {
-  .bio-container-bottom {
-    height: 400px;
-  }
-
-  .work-grid-compact {
-    display: flex !important;
-    height: 500px;
-    display: flex;
-    gap: 0px;
-    padding-top: 10px;
-  }
-
-  .photo2 {
-    height: 250px;
-  }
-}
-
-@media (min-height: 1400px) {
-  .app-row {
-    padding-top: 200px;
-    padding-bottom: 280px;
-  }
-
-  .content-top {
-    align-items: flex-start;
-  }
-}
-
-@media (max-width: 520px) {
-  .footer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 12px;
-    padding-right: 16px;
-  }
-
-  .footer-links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 12px;
-  }
-
-  .main-nav > * {
-    font-size: 22px;
-  }
-
-  .bio {
-    font-size: 18px;
-  }
-
-  .w-role {
-    font-size: 16px;
-    width: 140px;
-  }
-
-  .content-top {
-    flex-direction: column;
-    margin-bottom: 30px;
-    align-items: flex-start;
-  }
-
-  .photo2 {
-    object-fit: cover;
-    height: 300px;
-  }
-
-  .project-sidebar-description {
-    font-size: 16px;
-  }
-
-  .project-desc-bottom {
-    padding-bottom: 0;
-    padding-top: 26px;
-  }
 }
 
 .w-title-about {
@@ -1224,5 +1108,117 @@ h6 {
   .app-fade {
     transition: none;
     opacity: 1;
+  }
+}
+
+@media (max-width: 520px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+  }
+
+  .main-nav>* {
+    font-size: 24px;
+  }
+  .footer >*{
+    font-size: 24px;
+  }
+  .w-role {
+    font-size: 16px;
+    width: 140px;
+  }
+
+  .content-top {
+    flex-direction: column;
+    margin-bottom: 30px;
+    align-items: flex-start;
+  }
+
+  .photo2 {
+    object-fit: cover;
+    height: 300px;
+  }
+
+  .project-desc-bottom {
+    padding-top: 26px;
+  }
+}
+
+
+
+@media (max-height: 750px) {
+  .photo2 {
+    height: 270px;
+  }
+/* .hero-title {
+  font-size: 80px;
+} */
+
+
+}
+
+@media (max-height: 650px) {
+  .photo2 {
+    height: 270px;
+    width: 70%;
+  }
+  .photo {
+    width: 80%;
+    margin: 0px auto;
+  }
+/* .hero-title {
+  font-size: 100px;
+} */
+.content-top {
+  min-height: 100px;
+  max-height: 100px;
+}
+.bio-container {
+   min-height: 100px;
+  max-height: 100px;
+}
+.year-stack {
+  font-size: 50px;
+  line-height: 40px;
+}
+
+.work-table {
+  gap: 16px;
+}
+.work-row {
+  font-size: 18px;
+}
+  .photo2 {
+    height: 270px;
+    width: 95%;
+    margin: 0px auto;
+  }
+  .photo {
+    width: 90%;
+  }
+}
+
+
+/* 1440–1679    ->  MIN 780  /  MAX 950 */
+
+/* Large tablets — PORTRAIT */
+@media (min-width: 800px) and (max-width: 1440px) and (min-height: 1100px) and (orientation: portrait) {
+  .app-row {
+    padding-bottom: 440px;
+  }
+    .hero-title {
+    font-size: 50px;
+  }
+  .year-stack {
+    font-size: 60px;
   }
 }

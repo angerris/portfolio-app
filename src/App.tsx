@@ -355,32 +355,53 @@ function App(): JSX.Element {
             </div>
 
             <div className="bio-main">
-              <div className="bio-container">
-                <p className="bio">
-                  Designer, art director and 3D enthusiast. A little underground music nerd. Based in Yerevan, Armenia.
-                </p>
-              </div>
 
-              {activeSection === "main" && <img src="https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768768528/photo_rw3nor.png" alt="Example" className="photo" />}
+
+              {activeSection === "main" && (
+                <>
+                  <div className="bio-container">
+                    <p className="bio">
+                      Designer, art director and 3D enthusiast. A little underground music nerd. Based in Yerevan, Armenia.
+                    </p>
+                  </div>
+                  <img src="https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768768528/photo_rw3nor.png" alt="Example" className="photo" />
+                </>
+
+              )}
 
               {activeSection === "about" && (
-                <div className="bio-container-bottom">
-                  <p className="bio">
-                    Armenian multidisciplinary designer and art director with 8+ years of experience working on visual
-                    campaigns, visual identities, typography, editorial, motion design and especially helping underground
-                    music artist to promote their music through my work. My inspiration comes from my own work of curation
-                    based on art, design, culture and music.
-                  </p>
-                </div>
+                <>
+                  <div className="bio-container">
+                    <p className="bio">
+                      Designer, art director and 3D enthusiast. A little underground music nerd. Based in Yerevan, Armenia.
+                    </p>
+                  </div>
+                  <div className="bio-container-bottom">
+                    <p className="bio">
+                      Armenian multidisciplinary designer and art director with 8+ years of experience working on visual
+                      campaigns, visual identities, typography, editorial, motion design and especially helping underground
+                      music artist to promote their music through my work. My inspiration comes from my own work of curation
+                      based on art, design, culture and music.
+                    </p>
+                  </div>
+                </>
+
               )}
 
               {activeProject && (
                 <>
-                  <div className="project-year-mid">{activeProject.year}</div>
+                  <div className="project-sidebar">
+                    <div className="bio-container">
+                      <p className="bio">
+                        Designer, art director and 3D enthusiast. A little underground music nerd. Based in Yerevan, Armenia.
+                      </p>
+                    </div>
+                    <div className="project-year-mid">{activeProject.year}</div>
 
-                  <div className="project-desc-bottom">
-                    <p className="project-sidebar-label">Description</p>
-                    <p className="project-sidebar-description">{activeProject.description}</p>
+                    <div className="project-desc-bottom">
+                      <p className="project-sidebar-label">Description</p>
+                      <p className="project-sidebar-description">{activeProject.description}</p>
+                    </div>
                   </div>
                 </>
               )}
@@ -400,9 +421,10 @@ function App(): JSX.Element {
                   </p>
                 </div>
 
-                <h3 className="section-title">Work Experience</h3>
+
 
                 <div className="work-scroll w-scroll-about">
+                  <h3 className="section-title">Work Experience</h3>
                   <ul className="work-table w-table-about original-grid">
                     {workItems2.map((item) => (
                       <li key={item.title} className="work-row">
@@ -439,8 +461,9 @@ function App(): JSX.Element {
                   </div>
                 </div>
 
-                <h3 className="section-title">Work Selection</h3>
                 <div className="work-scroll">
+
+                  <h3 className="section-title">Work Selection</h3>
                   <ul className="work-table">
                     {workItems.map((item) => (
                       <li

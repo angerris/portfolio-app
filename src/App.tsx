@@ -219,14 +219,14 @@ function App(): JSX.Element {
 
 
   const [isAppVisible, setIsAppVisible] = useState(false);
-const [isFakeNavLoading, setIsFakeNavLoading] = useState<boolean>(false);
+  const [isFakeNavLoading, setIsFakeNavLoading] = useState<boolean>(false);
 
-const fakeNavTimeoutIdsRef = useRef<number[]>([]);
+  const fakeNavTimeoutIdsRef = useRef<number[]>([]);
 
-function clearFakeNavTimeouts(): void {
-  fakeNavTimeoutIdsRef.current.forEach((timeoutId) => window.clearTimeout(timeoutId));
-  fakeNavTimeoutIdsRef.current = [];
-}
+  function clearFakeNavTimeouts(): void {
+    fakeNavTimeoutIdsRef.current.forEach((timeoutId) => window.clearTimeout(timeoutId));
+    fakeNavTimeoutIdsRef.current = [];
+  }
 
   useEffect(() => {
     const animationFrameId = requestAnimationFrame(() => {
@@ -288,7 +288,6 @@ function clearFakeNavTimeouts(): void {
       setActiveSection("main");
     }
 
-    // Ensure correct state if something changed hash before React mounted
     syncSectionFromHash();
 
     window.addEventListener("hashchange", syncSectionFromHash);
@@ -297,7 +296,6 @@ function clearFakeNavTimeouts(): void {
       window.removeEventListener("hashchange", syncSectionFromHash);
     };
   }, []);
-  // 2) INSIDE App() add state + effect (near your other state)
 
   const [isScrollToTopVisible, setIsScrollToTopVisible] = useState(false);
 
@@ -336,48 +334,77 @@ function clearFakeNavTimeouts(): void {
   function markOneMediaAsReady(): void {
     setMediaLoadedCount((previousCount) => previousCount + 1);
   }
-function navigateMainAboutWithFakeLoader(targetSection: "main" | "about"): void {
-  if (activeSection === targetSection) return;
+  function navigateMainAboutWithFakeLoader(targetSection: "main" | "about"): void {
+    if (activeSection === targetSection) return;
 
-  clearFakeNavTimeouts();
-
-  setIsFakeNavLoading(true);
-
-  const changeHashTimeoutId: number = window.setTimeout(() => {
-    window.location.hash = encodeURIComponent(targetSection);
-
-    requestAnimationFrame(() => {
-      window.scrollTo({ top: 0 });
-    });
-  }, 220);
-
-  const hideLoaderTimeoutId: number = window.setTimeout(() => {
-    setIsFakeNavLoading(false);
-  }, 520);
-
-  fakeNavTimeoutIdsRef.current.push(changeHashTimeoutId, hideLoaderTimeoutId);
-}
-
-useEffect(() => {
-  return () => {
     clearFakeNavTimeouts();
-  };
-}, []);
+
+    setIsFakeNavLoading(true);
+
+    const changeHashTimeoutId: number = window.setTimeout(() => {
+      window.location.hash = encodeURIComponent(targetSection);
+
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: 0 });
+      });
+    }, 220);
+
+    const hideLoaderTimeoutId: number = window.setTimeout(() => {
+      setIsFakeNavLoading(false);
+    }, 520);
+
+    fakeNavTimeoutIdsRef.current.push(changeHashTimeoutId, hideLoaderTimeoutId);
+  }
+
+  useEffect(() => {
+    return () => {
+      clearFakeNavTimeouts();
+    };
+  }, []);
+
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
+  const previousSectionRef = useRef<Section | null>(null);
+
+  useEffect(() => {
+    const previousSection: Section | null = previousSectionRef.current;
+    previousSectionRef.current = activeSection;
+
+    if (previousSection === activeSection) return;
+
+    const animationFrameId: number = window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    });
+
+    const timeoutId: number = window.setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }, 0);
+
+    return () => {
+      window.cancelAnimationFrame(animationFrameId);
+      window.clearTimeout(timeoutId);
+    };
+  }, [activeSection]);
+
 
   return (
     <>
       <div className={`app-fade ${isAppVisible ? "is-visible" : ""}`}>
         <CustomCursor size={48} />
 
-      {(isMediaLoading || isFakeNavLoading) && <FullscreenLoader />}
+        {(isMediaLoading || isFakeNavLoading) && <FullscreenLoader />}
 
         <div className="app-row">
           <aside className="sidebar">
             <div className="main-nav">
-          <a className="name" onClick={() => navigateMainAboutWithFakeLoader("main")}>
+              <a className="name" onClick={() => navigateMainAboutWithFakeLoader("main")}>
                 Alen Aslanyan
               </a>
-             <a className="about" onClick={() => navigateMainAboutWithFakeLoader("about")}>
+              <a className="about" onClick={() => navigateMainAboutWithFakeLoader("about")}>
                 About
               </a>
               <a

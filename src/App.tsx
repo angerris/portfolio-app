@@ -1,4 +1,4 @@
-import { useEffect, useState, type JSX } from "react";
+import { useEffect, useRef, useState, type JSX } from "react";
 import "./App.css";
 import { CustomCursor } from "./CustomCursor";
 
@@ -219,6 +219,14 @@ function App(): JSX.Element {
 
 
   const [isAppVisible, setIsAppVisible] = useState(false);
+const [isFakeNavLoading, setIsFakeNavLoading] = useState<boolean>(false);
+
+const fakeNavTimeoutIdsRef = useRef<number[]>([]);
+
+function clearFakeNavTimeouts(): void {
+  fakeNavTimeoutIdsRef.current.forEach((timeoutId) => window.clearTimeout(timeoutId));
+  fakeNavTimeoutIdsRef.current = [];
+}
 
   useEffect(() => {
     const animationFrameId = requestAnimationFrame(() => {
@@ -328,21 +336,48 @@ function App(): JSX.Element {
   function markOneMediaAsReady(): void {
     setMediaLoadedCount((previousCount) => previousCount + 1);
   }
+function navigateMainAboutWithFakeLoader(targetSection: "main" | "about"): void {
+  if (activeSection === targetSection) return;
+
+  clearFakeNavTimeouts();
+
+  setIsFakeNavLoading(true);
+
+  const changeHashTimeoutId: number = window.setTimeout(() => {
+    window.location.hash = encodeURIComponent(targetSection);
+
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0 });
+    });
+  }, 220);
+
+  const hideLoaderTimeoutId: number = window.setTimeout(() => {
+    setIsFakeNavLoading(false);
+  }, 520);
+
+  fakeNavTimeoutIdsRef.current.push(changeHashTimeoutId, hideLoaderTimeoutId);
+}
+
+useEffect(() => {
+  return () => {
+    clearFakeNavTimeouts();
+  };
+}, []);
 
   return (
     <>
       <div className={`app-fade ${isAppVisible ? "is-visible" : ""}`}>
         <CustomCursor size={48} />
 
-        {isMediaLoading && <FullscreenLoader />}
+      {(isMediaLoading || isFakeNavLoading) && <FullscreenLoader />}
 
         <div className="app-row">
           <aside className="sidebar">
             <div className="main-nav">
-              <a className="name" onClick={() => (window.location.hash = encodeURIComponent("main"))}>
+          <a className="name" onClick={() => navigateMainAboutWithFakeLoader("main")}>
                 Alen Aslanyan
               </a>
-              <a className="about" onClick={() => (window.location.hash = encodeURIComponent("about"))}>
+             <a className="about" onClick={() => navigateMainAboutWithFakeLoader("about")}>
                 About
               </a>
               <a

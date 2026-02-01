@@ -78,7 +78,7 @@ const projectContentByTitle: Record<WorkItemTitle, ProjectContent> = {
     description:
       "bigbig is an independent visual studio, a platform for high-concept experimentation and boundary-pushing design. Beyond its formal branding, the studio’s Instagram acts as a living portfolio, showcasing everything from raw creative exercises to realized commercial products. It is a space dedicated to ideas that demand total creative freedom.",
     media: [
-      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750530/Group_75_n57u4r.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1769979445/Group_75_1_pbqxu5.png" },
       { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_auto,f_auto/v1768764138/BIG_1_chtq8x_3_r4vprv.mp4" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750537/Mask_group_jm187b.png" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750538/Mask_group-2_g1jmen.png" },
@@ -92,7 +92,7 @@ const projectContentByTitle: Record<WorkItemTitle, ProjectContent> = {
     description:
       "This fungi-dancer hybrid was created for the promotion of SpinX9’s second event. “DANCE!” is the only message that the visual carries, which is truly important, yet sometimes overlooked in our everyday life.",
     media: [
-      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749598/1_qcra5p.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1769979493/MOOSHRUM_1_ngpksq.png" },
       { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_auto,f_auto/v1768749880/2v_labpi5.mp4" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749603/3_qaaktu.png" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749602/4_ywdrgb.png" },
@@ -148,7 +148,7 @@ const projectContentByTitle: Record<WorkItemTitle, ProjectContent> = {
     description:
       "For Lareman Online Gift Shop the goal was to build a brand identity that felt both nostalgic and energetic. I used a vibrant, classic palette of primary colors that mirror the excitement and emotional connection of a perfectly chosen gift. The project involved creating a versatile visual language applied to everything from shipping boxes and business cards to promotional apparel, ensuring a memorable brand presence at every customer interaction.",
     media: [
-      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750093/Group_51_hk96iq.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1769979527/Group_84_2_drdprt.png" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749553/2_o5jp3f.png" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749555/3_lhrf0e.png" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749554/4_rscca0.png" },
@@ -364,7 +364,7 @@ function App(): JSX.Element {
                       Designer, art director and 3D enthusiast. A little underground music nerd. Based in Yerevan, Armenia.
                     </p>
                   </div>
-                  <img src="https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768768528/photo_rw3nor.png" alt="Example" className="photo" />
+                  <img src="https://res.cloudinary.com/ddqyj0lhv/image/upload/v1769978133/a6ac11a563b0ac26299981b11ba8c493_1_1_wpubgc.png" alt="Example" className="photo" />
                 </>
 
               )}
@@ -455,10 +455,10 @@ function App(): JSX.Element {
               <>
                 <div className="content-top">
                   <p className="hero-title">PORTFOLIO</p>
-                  <div className="year-stack">
+                  {/* <div className="year-stack">
                     <span>2023</span>
                     <span>/2025</span>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="work-scroll">

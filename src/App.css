@@ -90,13 +90,13 @@ h6 {
    SETTINGS / UTILITIES
    ========================================================================== */
 
-.work-scroll::-webkit-scrollbar {
+ .work-scroll::-webkit-scrollbar {
   width: 0;
   height: 0;
-}
+} 
 
 .work-scroll {
-  scrollbar-width: none;
+   scrollbar-width: none; 
   min-height: fit-content;
 }
 
@@ -418,13 +418,24 @@ h6 {
    PROJECT PAGE
    ========================================================================== */
 
-.content-project::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+ .content-project::-webkit-scrollbar {
+  scrollbar-width: auto;
+  height: auto;
+} 
+.content-project::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,0.55);
+}
+.content-project::-webkit-scrollbar-track {
+  background: transparent;
+}
+.content-project::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.35);
+  border-radius: 12px;
 }
 
 .content-project {
-  scrollbar-width: none;
+  scrollbar-width: auto;
+  scrollbar-color: rgba(0,0,0,0.35) transparent;
   overflow-y: auto !important;
 }
 
@@ -928,6 +939,7 @@ h6 {
   .project-sidebar-description {
     font-size: 14px;
   }
+
 
 
 }

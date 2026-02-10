@@ -12,7 +12,7 @@ const workItems = [
   { title: "Spinx9", role: "Graphic Design", year: "2025" },
   { title: "BigBig Studio", role: "Art Direction", year: "2023" },
   { title: "Mushroom", role: "Art Direction", year: "2024" },
-  { title: "Lusavor Jewellery", role: "Graphic Design", year: "2023" },
+  { title: "Lusavor", role: "Graphic Design", year: "2023" },
   { title: "Yoyo Kids", role: "Graphic Design", year: "2025" },
   { title: "Katun", role: "Graphic Design", year: "2023" },
   { title: "Lareman", role: "Art Direction", year: "2025" },
@@ -426,7 +426,7 @@ function App(): JSX.Element {
                       Designer, art director and 3D enthusiast. A little underground music nerd. Based in Yerevan, Armenia.
                     </p>
                   </div>
-                  <img src="https://res.cloudinary.com/ddqyj0lhv/image/upload/v1769978133/a6ac11a563b0ac26299981b11ba8c493_1_1_wpubgc.png" alt="Example" className="photo" />
+                  <img src="https://res.cloudinary.com/ddqyj0lhv/image/upload/v1770746248/amam_1_1_1_1_1_1_1_1_1_r7plty.png" alt="Example" className="photo" />
                 </>
 
               )}

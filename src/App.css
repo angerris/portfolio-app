@@ -791,7 +791,13 @@ h6 {
 
   .w-title-compact {
     width: 500px !important;
+   display: block;
+
   }
+  .w-title-compact>* {
+       font-size: 16px;
+  }
+
 
   .work-row-compact {
     height: 24px;
@@ -990,7 +996,7 @@ h6 {
   }
 
   .photo {
-    object-fit: contain;
+    object-fit: cover;
     height: 100%;
   }
 
@@ -1098,9 +1104,6 @@ h6 {
   padding-top: 30px;
 }
 
-.item-role-compact {
-  font-size: 16px;
-}
 
 
 .app-fade {
@@ -1147,7 +1150,7 @@ h6 {
 
   .content-top {
     flex-direction: column;
-    margin-bottom: 30px;
+    margin-top: 20px;
     align-items: flex-start;
   }
 
@@ -1208,7 +1211,7 @@ h6 {
     margin: 0px auto;
   }
   .photo {
-    width: 90%;
+    width: 100%;
   }
 }
 

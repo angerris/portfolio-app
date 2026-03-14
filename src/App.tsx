@@ -24,7 +24,7 @@ const workItems2 = [
   { title: "Fast Shift", role: "Art Director", year: "2024–present" },
   {
     title: "European School in Armenia",
-    role: "Graphic Design Specialist, Lecturer",
+    role: "Graphic Designer, Lecturer",
     year: "Project Based",
   },
   { title: "Ucom Company", role: "Senior Graphic Designer", year: "2022–2024" },
@@ -100,8 +100,8 @@ const projectContentByTitle: Record<WorkItemTitle, ProjectContent> = {
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749604/6_gv0jfp.png" },
     ],
   },
-  "Lusavor Jewellery": {
-    title: "Lusavor Jewellery",
+  "Lusavor": {
+    title: "Lusavor",
     year: "2023",
     description:
       "Branding a product that names itself 'luminous' requires a delicate touch. For Lusavor Jewelry, the challenge was to create a bold identity that felt as high-end as the handcrafted silver pieces it represents. By focusing on minimalist typography and a “less is more” layout, the branding acts as a premium frame for the brand’s iconic Armenian-inspired silhouettes. It is a visual identity that doesn't compete for attention, but rather provides a solid, modern stage for a product that carries its own light.",
@@ -503,7 +503,7 @@ function App(): JSX.Element {
                     {workItems2.map((item) => (
                       <li key={`${item.title}-compact`} className="work-row work-row-compact">
                         <span className="w-title-about w-title-compact">
-                          {item.title} <span className="item-role-compact">({item.role})</span>
+                            {item.title} <span className="item-role-compact">({item.role})</span>
                         </span>
                         <span className="w-year-about">{item.year}</span>
                       </li>

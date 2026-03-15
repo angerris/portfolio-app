@@ -65,10 +65,10 @@ const projectContentByTitle: Record<WorkItemTitle, ProjectContent> = {
       "Born from the raw energy of Armenia's underground music and entertainment scene, I developed this Red Diva to serve as the face of the SpinX9 electronic music event series. This character transitioned from a creative concept into a viral promotional asset, acting as the lead animation for the brand’s digital campaign and setting the high tone for the entire event brand.",
     media: [
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749896/1_f2aq6t.png" },
-      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_auto,f_auto/v1768749978/2v_h9wy83.mp4" },
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_100,f_mp4/v1768749978/2v_h9wy83.mp4" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749903/3_nbwfgx.png" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749897/4_ec8gsm.png" },
-      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_auto,f_auto/v1768750016/5v_nuffip.mp4" },
+     { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_99,f_mp4/v1768750016/5v_nuffip.mp4" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749900/6_ryw5pb.png" },
     ],
   },
@@ -79,7 +79,7 @@ const projectContentByTitle: Record<WorkItemTitle, ProjectContent> = {
       "bigbig is an independent visual studio, a platform for high-concept experimentation and boundary-pushing design. Beyond its formal branding, the studio’s Instagram acts as a living portfolio, showcasing everything from raw creative exercises to realized commercial products. It is a space dedicated to ideas that demand total creative freedom.",
     media: [
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1769979445/Group_75_1_pbqxu5.png" },
-      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_auto,f_auto/v1768764138/BIG_1_chtq8x_3_r4vprv.mp4" },
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_100,f_mp4/v1768764138/BIG_1_chtq8x_3_r4vprv.mp4" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750537/Mask_group_jm187b.png" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750538/Mask_group-2_g1jmen.png" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750544/Mask_group-3_s9kva9.png" },

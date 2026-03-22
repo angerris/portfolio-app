@@ -23,6 +23,13 @@ body,
 }
 
 @font-face {
+  font-family: 'ABC Diatype';
+  src: url('/fonts/ABC Diatype.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'Junicode';
   src: url('/fonts/junicode-regularcondensed-webfont.woff2') format('woff2'),
     url('/fonts/junicode-regularcondensed-webfont.woff') format('woff');
@@ -126,6 +133,13 @@ h6 {
   }
 }
 
+@media (min-width: 769px) and (max-height: 875px) {
+  body.is-project .sidebar {
+    top: 16px;
+    height: calc(100dvh - 32px);
+  }
+}
+
 
 .sidebar {
   width: 31%;
@@ -168,6 +182,7 @@ h6 {
   justify-content: space-between;
   align-items: flex-end;
   height: 32px;
+  font-weight: bold;
 }
 
 .bio {
@@ -210,8 +225,8 @@ h6 {
 }
 
 .name {
-  font-family: "Junicode";
-  font-size: 32px;
+  font-family: "ABC Diatype";
+  font-size: 28px;
 }
 
 /* ==========================================================================
@@ -348,6 +363,7 @@ h6 {
   justify-content: space-between;
   background-color: #fff;
   font-family: "ABC Diatype";
+  font-weight: bold;
 }
 
 .footer-note {
@@ -418,27 +434,50 @@ h6 {
    PROJECT PAGE
    ========================================================================== */
 
- .content-project::-webkit-scrollbar {
+body.is-project {
+  overflow-y: auto;
   scrollbar-width: auto;
-  height: auto;
-} 
-.content-project::-webkit-scrollbar-thumb:hover {
-  background: rgba(0,0,0,0.55);
+  scrollbar-color: rgba(0,0,0,0.35) transparent;
 }
-.content-project::-webkit-scrollbar-track {
-  background: transparent;
+
+body.is-project::-webkit-scrollbar {
+  width: 8px;
 }
-.content-project::-webkit-scrollbar-thumb {
+
+body.is-project::-webkit-scrollbar-thumb {
   background: rgba(0,0,0,0.35);
   border-radius: 12px;
 }
 
+body.is-project::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,0.55);
+}
+
+body.is-project::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (min-width: 769px) {
+  body.is-project .app-row {
+    height: auto;
+    min-height: 100dvh;
+  }
+
+  body.is-project .sidebar {
+    position: sticky;
+    top: 32px;
+    align-self: flex-start;
+    height: calc(100dvh - 64px);
+  }
+
+  body.is-project .content {
+    overflow: visible;
+  }
+}
+
 .content-project {
-  scrollbar-width: auto;
-  scrollbar-color: rgba(0,0,0,0.35) transparent;
-  overflow-y: auto !important;
   width: 47%;
-margin: 0 auto;
+  margin: 0 auto;
 }
 
 .project-year-mid {
@@ -681,7 +720,7 @@ margin: 0 auto;
 
 @media (max-width: 1440px) {
   .name {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .about,  .instagram{

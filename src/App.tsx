@@ -8,16 +8,16 @@ type WorkItemTitle = WorkItem["title"];
 type Section = "main" | "about" | WorkItemTitle;
 
 const workItems = [
-  { title: "Flinta", role: "Art Direction", year: "2025" },
+  { title: "Flinta", role: "Creator", year: "2025" },
   { title: "Spinx9", role: "Graphic Design", year: "2025" },
-  { title: "BigBig Studio", role: "Art Direction", year: "2023" },
-  { title: "Mushroom", role: "Art Direction", year: "2024" },
-  { title: "Lusavor", role: "Graphic Design", year: "2023" },
   { title: "Yoyo Kids", role: "Graphic Design", year: "2025" },
+  { title: "Lareman", role: "Creator", year: "2025" },
+  { title: "Mushroom", role: "Creator", year: "2024" },
+  { title: "Hornet Flow", role: "Creator", year: "2024" },
+  { title: "BigBig Studio", role: "Creator", year: "2023" },
+  { title: "Lusavor", role: "Graphic Design", year: "2023" },
   { title: "Katun", role: "Graphic Design", year: "2023" },
-  { title: "Lareman", role: "Art Direction", year: "2025" },
-  { title: "Hornet Flow", role: "Art Direction", year: "2024" },
-  { title: "On", role: "Art Direction", year: "2023" },
+  { title: "On", role: "Creator", year: "2023" },
 ];
 
 const workItems2 = [
@@ -368,6 +368,17 @@ function App(): JSX.Element {
     }
   }, []);
 
+  useEffect(() => {
+    if (isProjectSection) {
+      document.body.classList.add("is-project");
+    } else {
+      document.body.classList.remove("is-project");
+    }
+    return () => {
+      document.body.classList.remove("is-project");
+    };
+  }, [isProjectSection]);
+
   const previousSectionRef = useRef<Section | null>(null);
 
   useEffect(() => {
@@ -402,7 +413,7 @@ function App(): JSX.Element {
           <aside className="sidebar">
             <div className="main-nav">
               <a className="name" onClick={() => navigateMainAboutWithFakeLoader("main")}>
-                Alen Aslanyan
+                Portfolio
               </a>
               <a className="about" onClick={() => navigateMainAboutWithFakeLoader("about")}>
                 About

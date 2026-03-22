@@ -101,7 +101,7 @@ window.removeEventListener("mouseup", handleMouseUp);
         height: size,
         pointerEvents: "none",
         transform: "translate(-15%, -10%)",
-        zIndex: 999999,
+        zIndex: 99999999,
         backgroundRepeat: "no-repeat",
         backgroundSize: "contain",
         backgroundPosition: "center",

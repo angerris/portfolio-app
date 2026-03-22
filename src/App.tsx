@@ -51,10 +51,10 @@ const projectContentByTitle: Record<WorkItemTitle, ProjectContent> = {
       "To create the brand identity for FLINTA Frequency, I explored the intersection of nature and synthesis. The project required a visual language that felt both raw and polished, aiming for an “earthly ethereal” aesthetic. The result is a welcoming, immersive interface where every element was crafted to foster an inclusive, community-driven atmosphere for listeners and artists alike.",
     media: [
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749096/1_hgwcju.png" },
-      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_auto,f_auto/v1768749179/2v_fht9ia.mp4" },
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_85,f_mp4/v1768749179/2v_fht9ia.mp4" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749098/3_ao3swd.png" },
-      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_auto,f_auto/v1768764617/flinta_2SHORT_1080x900_xsowsd.mp4" },
-      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_auto,f_auto/v1768749223/5v_j51slq.mp4" },
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_85,f_mp4/v1768764617/flinta_2SHORT_1080x900_xsowsd.mp4" },
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_85,f_mp4/v1768749223/5v_j51slq.mp4" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749100/6_heqyv8.png" },
     ],
   },
@@ -65,7 +65,7 @@ const projectContentByTitle: Record<WorkItemTitle, ProjectContent> = {
       "Born from the raw energy of Armenia's underground music and entertainment scene, I developed this Red Diva to serve as the face of the SpinX9 electronic music event series. This character transitioned from a creative concept into a viral promotional asset, acting as the lead animation for the brand’s digital campaign and setting the high tone for the entire event brand.",
     media: [
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749896/1_f2aq6t.png" },
-      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_100,f_mp4/v1768749978/2v_h9wy83.mp4" },
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_90,f_mp4/v1768749978/2v_h9wy83.mp4" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749903/3_nbwfgx.png" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749897/4_ec8gsm.png" },
      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_99,f_mp4/v1768750016/5v_nuffip.mp4" },
@@ -80,10 +80,10 @@ const projectContentByTitle: Record<WorkItemTitle, ProjectContent> = {
     media: [
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1769979445/Group_75_1_pbqxu5.png" },
       { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_100,f_mp4/v1768764138/BIG_1_chtq8x_3_r4vprv.mp4" },
-      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750537/Mask_group_jm187b.png" },
-      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750538/Mask_group-2_g1jmen.png" },
-      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750544/Mask_group-3_s9kva9.png" },
-      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750536/Mask_group-1_y1pggt.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1774207735/enhanced_Mask_group_1_jj2fax.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1774207763/enhanced_Mask_group_2_cu11ne.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1774207809/enhanced_Mask_group_3_nopelb.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1774207835/enhanced_Mask_group_4_omf6af.png" },
     ],
   },
   Mushroom: {
@@ -92,11 +92,11 @@ const projectContentByTitle: Record<WorkItemTitle, ProjectContent> = {
     description:
       "This fungi-dancer hybrid was created for the promotion of SpinX9’s second event. “DANCE!” is the only message that the visual carries, which is truly important, yet sometimes overlooked in our everyday life.",
     media: [
-      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1769979493/MOOSHRUM_1_ngpksq.png" },
-      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_auto,f_auto/v1768749880/2v_labpi5.mp4" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1774207879/enhanced_MOOSHRUM_1_yii7ka.png" },
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_90,f_mp4/v1768749880/2v_labpi5.mp4" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749603/3_qaaktu.png" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749602/4_ywdrgb.png" },
-      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_auto,f_auto/v1768749643/5v_dobozr.mp4" },
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_90,f_mp4/v1768749643/5v_dobozr.mp4" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749604/6_gv0jfp.png" },
     ],
   },
@@ -122,7 +122,7 @@ const projectContentByTitle: Record<WorkItemTitle, ProjectContent> = {
     media: [
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750183/Group_52_rfxdjm.png" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749416/2_hvfyax.png" },
-      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_auto,f_auto/v1768764744/yoyo_1_1080x900_d8fxcn.mp4" },
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_100,f_mp4/v1768764744/yoyo_1_1080x900_d8fxcn.mp4" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749415/4_ddnkwa.png" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749420/5_fiqjub.png" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749409/6_sib4hj.png" },
@@ -136,7 +136,7 @@ const projectContentByTitle: Record<WorkItemTitle, ProjectContent> = {
     media: [
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749358/1_sxzhg4.png" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749354/2_htwsih.png" },
-      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_auto,f_auto/v1768749396/3v_ammgpi.mp4" },
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_95,f_mp4/v1768749396/3v_ammgpi.mp4" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749361/4_yjqkrc.png" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749363/5_xilglm.png" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749359/6_vytiac.png" },
@@ -150,10 +150,10 @@ const projectContentByTitle: Record<WorkItemTitle, ProjectContent> = {
     media: [
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1769979527/Group_84_2_drdprt.png" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749553/2_o5jp3f.png" },
-      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749555/3_lhrf0e.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1774208300/__________4n21ce2i4lgg0gtmt2bt_q4mjq7.png" },
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749554/4_rscca0.png" },
-      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749555/5_obc47k.png" },
-      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750139/Mask_group_16_bzbk7x.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1774208332/___________1bxw4ow3sb574df2zvaz_gv54jh.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1774208360/___________71agrwqkc38huqzpr2en_zex4dt.png" },
     ],
   },
   "Hornet Flow": {
@@ -162,12 +162,12 @@ const projectContentByTitle: Record<WorkItemTitle, ProjectContent> = {
     description:
       "It began as an exploration into bio-animation and the study of organic movement, evolved into this bioluminescent, fuzzy hornet sequence and then found its home as a music event visualizer. With this animation I wanted to sync the visual to the natural rhythm of a hornet’s wing-buzz and to step away from human-made sounds and listen to the primal music mother nature has to offer.",
     media: [
-      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_auto,f_auto/v1768764665/bee1_1080x1139_mzsezs.mp4" },
-      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749489/2_mmgrgc.png" },
-      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_auto,f_auto/v1768749915/bee2_iyqz59.mp4" },
-      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749491/4_mcvkqs.png" },
-      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749491/5_fcw1qv.png" },
-      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749492/6_iz9n4x.png" },
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_90,f_mp4/v1768764665/bee1_1080x1139_mzsezs.mp4" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1774208035/enhanced_Mask_group_10_cdzv0o.png" },
+      { kind: "video", src: "https://res.cloudinary.com/ddqyj0lhv/video/upload/q_90,f_mp4/v1768749915/bee2_iyqz59.mp4" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1774208073/enhanced_Mask_group_11_kqzcvq.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1774208098/enhanced_Mask_group_12_jayprd.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1774208118/enhanced_SDC_1_gxzzlc.png" },
     ],
   },
   "On": {
@@ -177,11 +177,11 @@ const projectContentByTitle: Record<WorkItemTitle, ProjectContent> = {
       "ON is a hub for the ultimate music enthusiasts. This project covers the full branding spectrum, blending digital interfaces with physical assets to connect melomaniacs across all musical boundaries.",
     media: [
       { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749888/1_vgrff2.png" },
-      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768750286/Mask_group_17_ooheg7.png" },
-      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749894/3_nqbwng.png" },
-      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749914/4_ijsjyb.png" },
-      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749893/5_h2ddo0.png" },
-      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768749894/6_e6nqsk.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1774208156/enhanced_Mask_group_9_oogpev.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1774208185/enhanced_Mask_group_7_e9hnkc.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1774208205/enhanced_Mask_group_8_qrtg9k.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1774208227/enhanced_Mask_group_6_dnqs73.png" },
+      { kind: "image", src: "https://res.cloudinary.com/ddqyj0lhv/image/upload/v1774208251/enhanced_Mask_group_5_j3apde.png" },
     ],
   },
 };
@@ -437,7 +437,7 @@ function App(): JSX.Element {
                       Designer, art director and 3D enthusiast. A little underground music nerd. Based in Yerevan, Armenia.
                     </p>
                   </div>
-                  <img src="https://res.cloudinary.com/ddqyj0lhv/image/upload/v1770746248/amam_1_1_1_1_1_1_1_1_1_r7plty.png" alt="Example" className="photo" />
+                  <img src="https://res.cloudinary.com/ddqyj0lhv/image/upload/v1774206859/_________welcome___3_________-_____3d__i5vwoexvkx8us29h2ao0_1_1_2_2_wlob3f.png" alt="Example" className="photo" />
                 </>
 
               )}
@@ -484,7 +484,7 @@ function App(): JSX.Element {
           <main className={`content ${isProjectSection ? "content-project" : ""}`}>
             {activeSection === "about" && (
               <div className="content-about">
-                <img src="https://res.cloudinary.com/ddqyj0lhv/image/upload/v1768768600/photo2_rfaag7.png" alt="Example" className="photo2" />
+                <img src="https://res.cloudinary.com/ddqyj0lhv/image/upload/v1774206183/abc_edmhck.jpg" alt="Example" className="photo2" />
                 <div className="bio-container-bottom-mobile">
                   <p className="bio">
                     Armenian multidisciplinary designer and art director with 8+ years of experience working on visual
